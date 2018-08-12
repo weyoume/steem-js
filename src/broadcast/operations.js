@@ -192,7 +192,7 @@ module.exports = [
       "author",
       "permlink",
       "max_accepted_payout",
-      "percent_steem_dollars",
+      "percent_ezira_dollars",
       "allow_votes",
       "allow_curation_rewards",
       "extensions"
@@ -275,7 +275,7 @@ module.exports = [
       "agent",
       "escrow_id",
       "sbd_amount",
-      "steem_amount",
+      "ezira_amount",
       "fee",
       "ratification_deadline",
       "escrow_expiration",
@@ -304,7 +304,7 @@ module.exports = [
       "receiver",
       "escrow_id",
       "sbd_amount",
-      "steem_amount"
+      "ezira_amount"
     ]
   },
   {
@@ -395,7 +395,7 @@ module.exports = [
     "operation": "claim_reward_balance",
     "params": [
       "account",
-      "reward_steem",
+      "reward_ezira",
       "reward_sbd",
       "reward_vests"
     ]

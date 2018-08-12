@@ -1,13 +1,13 @@
 
-// This file is merge updated from steemd's js_operation_serializer program.
+// This file is merge updated from eznode's js_operation_serializer program.
 /*
 
 ./js_operation_serializer |
 sed 's/void/future_extensions/g'|
-sed 's/steemit_protocol:://g'|
+sed 's/ezirait_protocol:://g'|
 sed 's/14static_variantIJNS_12fixed_stringINSt3__14pairIyyEEEEEEE/string/g'|
-sed 's/steemit_future_extensions/future_extensions/g'|
-sed 's/steemit_protocol_//g' > tmp.coffee
+sed 's/ezirait_future_extensions/future_extensions/g'|
+sed 's/ezirait_protocol_//g' > tmp.coffee
 
 */
 // coffee tmp.coffee # fix errors until you see: `ChainTypes is not defined`
@@ -348,7 +348,7 @@ let comment_options = new Serializer(
     author: string,
     permlink: string,
     max_accepted_payout: asset,
-    percent_steem_dollars: uint16,
+    percent_ezira_dollars: uint16,
     allow_votes: bool,
     allow_curation_rewards: bool,
     extensions: set(static_variant([
@@ -423,7 +423,7 @@ let escrow_transfer = new Serializer(
     from: string,
     to: string,
     sbd_amount: asset,
-    steem_amount: asset,
+    ezira_amount: asset,
     escrow_id: uint32,
     agent: string,
     fee: asset,
@@ -452,7 +452,7 @@ let escrow_release = new Serializer(
     receiver: string,
     escrow_id: uint32,
     sbd_amount: asset,
-    steem_amount: asset
+    ezira_amount: asset
 }
 );
 
@@ -563,7 +563,7 @@ let set_reset_account = new Serializer(
 let claim_reward_balance = new Serializer( 
     "claim_reward_balance", {
     account: string,
-    reward_steem: asset,
+    reward_ezira: asset,
     reward_sbd: asset,
     reward_vests: asset
 }
@@ -606,7 +606,7 @@ let author_reward = new Serializer(
     author: string,
     permlink: string,
     sbd_payout: asset,
-    steem_payout: asset,
+    ezira_payout: asset,
     vesting_payout: asset
 }
 );

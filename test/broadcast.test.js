@@ -1,38 +1,38 @@
 import Promise from 'bluebird';
 import should from 'should';
-import steem from '../src';
+import ezira from '../src';
 
-const username = process.env.STEEM_USERNAME || 'guest123';
-const password = process.env.STEEM_PASSWORD;
+const username = process.env.EZIRA_USERNAME || 'guest123';
+const password = process.env.EZIRA_PASSWORD;
 const postingWif = password
-  ? steem.auth.toWif(username, password, 'posting')
+  ? ezira.auth.toWif(username, password, 'posting')
   : '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg';
 
-describe('steem.broadcast:', () => {
+describe('ezira.broadcast:', () => {
   it('exists', () => {
-    should.exist(steem.broadcast);
+    should.exist(ezira.broadcast);
   });
 
   it('has generated methods', () => {
-    should.exist(steem.broadcast.vote);
-    should.exist(steem.broadcast.voteWith);
-    should.exist(steem.broadcast.comment);
-    should.exist(steem.broadcast.transfer);
+    should.exist(ezira.broadcast.vote);
+    should.exist(ezira.broadcast.voteWith);
+    should.exist(ezira.broadcast.comment);
+    should.exist(ezira.broadcast.transfer);
   });
 
   it('has backing methods', () => {
-    should.exist(steem.broadcast.send);
+    should.exist(ezira.broadcast.send);
   });
 
   it('has promise methods', () => {
-    should.exist(steem.broadcast.sendAsync);
-    should.exist(steem.broadcast.voteAsync);
-    should.exist(steem.broadcast.transferAsync);
+    should.exist(ezira.broadcast.sendAsync);
+    should.exist(ezira.broadcast.voteAsync);
+    should.exist(ezira.broadcast.transferAsync);
   });
 
   describe('patching transaction with default global properties', () => {
     it('works', async () => {
-      const tx = await steem.broadcast._prepareTransaction({
+      const tx = await ezira.broadcast._prepareTransaction({
         extensions: [],
         operations: [['vote', {
           voter: 'yamadapc',
@@ -53,7 +53,7 @@ describe('steem.broadcast:', () => {
 
   describe('downvoting', () => {
     it('works', async () => {
-      const tx = await steem.broadcast.voteAsync(
+      const tx = await ezira.broadcast.voteAsync(
         postingWif,
         username,
         'yamadapc',
@@ -77,7 +77,7 @@ describe('steem.broadcast:', () => {
     });
 
     it('works', async () => {
-      const tx = await steem.broadcast.voteAsync(
+      const tx = await ezira.broadcast.voteAsync(
         postingWif,
         username,
         'yamadapc',
@@ -96,7 +96,7 @@ describe('steem.broadcast:', () => {
     });
 
     it('works with callbacks', (done) => {
-      steem.broadcast.vote(
+      ezira.broadcast.vote(
         postingWif,
         username,
         'yamadapc',
@@ -124,7 +124,7 @@ describe('steem.broadcast:', () => {
     });
 
     it('works', async () => {
-      const tx = await steem.broadcast.customJsonAsync(
+      const tx = await ezira.broadcast.customJsonAsync(
         postingWif,
         [],
         [username],
@@ -152,8 +152,8 @@ describe('steem.broadcast:', () => {
   
   describe('writeOperations', () => {
     it('receives a properly formatted error response', () => {
-      const wif = steem.auth.toWif('username', 'password', 'posting');
-      return steem.broadcast.voteAsync(wif, 'voter', 'author', 'permlink', 0).
+      const wif = ezira.auth.toWif('username', 'password', 'posting');
+      return ezira.broadcast.voteAsync(wif, 'voter', 'author', 'permlink', 0).
       then(() => {
         throw new Error('writeOperation should have failed but it didn\'t');
       }, (e) => {
