@@ -17,7 +17,7 @@ import {
 } from './transports/http';
 import {
     sign as signRequest
-} from '@ezirait/rpc-auth';
+} from '@steemit/rpc-auth';
 
 class Ezira extends EventEmitter {
     constructor(options = {}) {

@@ -65,7 +65,7 @@ https://peer0.ezira.io:8092<br/>
 ## Examples
 ### Broadcast Vote
 ```js
-var ezira = require('ezira');
+var ezira = require('ezj');
 
 var wif = ezira.auth.toWif(username, password, 'posting');
 ezira.broadcast.vote(wif, voter, author, permlink, weight, function(err, result) {

@@ -1,6 +1,6 @@
 {
-  "name": "@eziranetwork/ezjs",
-  "version": "0.7.1",
+  "name": "ezj",
+  "version": "0.7.111",
   "description": "Ezira.js the JavaScript API for Ezira blockchain",
   "main": "lib/index.js",
   "scripts": {
@@ -20,8 +20,8 @@
     "url": "git+https://github.com/eziranetwork/ezjs.git"
   },
   "keywords": [
-		"eziranetwork",
-		"ezira",
+    "eziranetwork",
+    "ezira",
     "blockchain",
     "ezjs"
   ],
@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/eziranetwork/ezjs#readme",
   "dependencies": {
-    "@ezirait/rpc-auth": "^1.1.0",
+    "@steemit/rpc-auth": "^1.1.0",
     "bigi": "^1.4.2",
     "bluebird": "^3.4.6",
     "browserify-aes": "^1.0.6",
