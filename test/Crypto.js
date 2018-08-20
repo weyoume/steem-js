@@ -5,7 +5,7 @@ var secureRandom = require('secure-random');
 var hash = require('../src/auth/ecc/src/hash');
 var key = require('../src/auth/ecc/src/key_utils');
 
-describe("ezira.auth: Crypto", function() {
+describe("ezhelp.js.auth: Crypto", function() {
 
     /*it "Computes public key", ->
         private_key = PrivateKey.fromHex decrypted_key.substring 0, 64
@@ -26,7 +26,7 @@ describe("ezira.auth: Crypto", function() {
 
 })
 
-describe("ezira.auth: derives", ()=> {
+describe("ezhelp.js.auth: derives", ()=> {
     
     let one_time_private = PrivateKey.fromHex("8fdfdde486f696fd7c6313325e14d3ff0c34b6e2c390d1944cbfe150f4457168")
     let to_public = PublicKey.fromStringOrThrow("EZT7vbxtK1WaZqXsiCHPcjVFBewVj8HFRd5Z5XZDpN6Pvb2dZcMqK")

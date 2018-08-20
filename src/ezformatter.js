@@ -1,5 +1,7 @@
 import get from "lodash/get";
-import { key_utils } from "./auth/ecc";
+import {
+  key_utils
+} from "./auth/ecc";
 
 module.exports = ezhelp.js => {
   function numberWithCommas(x) {
@@ -9,33 +11,34 @@ module.exports = ezhelp.js => {
   function ESCORvalueInECO(account, gprops) {
     const accountESCOR = parseFloat(account.ESCOR.split(" ")[0]);
     const totalESCOR = parseFloat(gprops.totalESCOR.split(" ")[0]);
-    const totalESCORvalueInECO = parseFloat(
-      gprops.totalECOfundForESCOR.split(" ")[0]
-    );
-    const ESCORvalueInECO = totalESCORvalueInECO * (accountESCOR / totalESCOR);
-    return ESCORvalueInECO;
+    const totalESCORvalueInECO = parseFloat(gprops.totalECOfundForESCOR.split(" ")[0]);
+		const accountESCORvalueInECO = totalESCORvalueInECO * (accountESCOR / totalESCOR);
+    return accountESCORvalueInECO;
   }
 
   function processOrders(open_orders, assetPrecision) {
-    const EUSDorders = !open_orders
-      ? 0
-      : open_orders.reduce((o, order) => {
-          if (order.sell_price.base.indexOf("EUSD") !== -1) {
-            o += order.for_sale;
-          }
-          return o;
-        }, 0) / assetPrecision;
+    const EUSDorders = !open_orders ?
+      0 :
+      open_orders.reduce((o, order) => {
+        if (order.sell_price.base.indexOf("EUSD") !== -1) {
+          o += order.for_sale;
+        }
+        return o;
+      }, 0) / assetPrecision;
 
-    const ordersECO = !open_orders
-      ? 0
-      : open_orders.reduce((o, order) => {
-          if (order.sell_price.base.indexOf("ECO") !== -1) {
-            o += order.for_sale;
-          }
-          return o;
-        }, 0) / assetPrecision;
+    const ordersECO = !open_orders ?
+      0 :
+      open_orders.reduce((o, order) => {
+        if (order.sell_price.base.indexOf("ECO") !== -1) {
+          o += order.for_sale;
+        }
+        return o;
+      }, 0) / assetPrecision;
 
-    return { ordersECO, EUSDorders };
+    return {
+      ordersECO,
+      EUSDorders
+    };
   }
 
   function calculateSaving(savings_withdraws) {
@@ -48,12 +51,20 @@ module.exports = ezhelp.js => {
         if (asset === "EUSD") EUSDpendingSavings += parseFloat(amount);
       }
     });
-    return { ECOsavingsPending, EUSDpendingSavings };
+    return {
+      ECOsavingsPending,
+      EUSDpendingSavings
+    };
   }
 
   function estimateAccountValue(
-    account,
-    { gprops, feed_price, open_orders, savings_withdraws, ESCORvalueInECO } = {}
+    account, {
+      gprops,
+      feed_price,
+      open_orders,
+      savings_withdraws,
+      ESCORvalueInECO
+    } = {}
   ) {
     const promises = [];
     const username = account.name;
@@ -87,10 +98,10 @@ module.exports = ezhelp.js => {
     if (!savings_withdraws) {
       promises.push(
         ezhelp.js
-          .getSavingsWithdrawFromAsync(username)
-          .then(savings_withdraws => {
-            savings = calculateSaving(savings_withdraws);
-          })
+        .getSavingsWithdrawFromAsync(username)
+        .then(savings_withdraws => {
+          savings = calculateSaving(savings_withdraws);
+        })
       );
     } else {
       savings = calculateSaving(savings_withdraws);
@@ -98,14 +109,17 @@ module.exports = ezhelp.js => {
 
     return Promise.all(promises).then(() => {
       let ECOtoEUSDprice = undefined;
-      const { base, quote } = feed_price;
+      const {
+        base,
+        quote
+      } = feed_price;
       if (/ EUSD$/.test(base) && / ECO$/.test(quote))
         ECOtoEUSDprice = parseFloat(base.split(" ")[0]);
       const ECOsavingsBalance = account.ECOsavingsBalance;
       const EUSDsavingsBalance = account.EUSDsavingsBalance;
       const balanceECO_Parsed = parseFloat(account.balance.split(" ")[0]);
       const ECOsavingsBalance_Parsed = parseFloat(ECOsavingsBalance.split(" ")[0]);
-      const EUSDbalance = parseFloat(account.EUSDbalance);
+      const EUSDbalance_Parsed = parseFloat(account.EUSDbalance);
       const EUSDsavingsBalance = parseFloat(EUSDsavingsBalance.split(" ")[0]);
 
       let conversionValue = 0;
@@ -124,7 +138,7 @@ module.exports = ezhelp.js => {
       }, []);
 
       const EUSDtotal =
-        EUSDbalance +
+				EUSDbalance_Parsed +
         EUSDsavingsBalance +
         savings.EUSDpendingSavings +
         orders.EUSDorders +
@@ -148,7 +162,7 @@ module.exports = ezhelp.js => {
   }
 
   return {
-    reputation: function(reputation) {
+    reputation: function (reputation) {
       if (reputation == null) return reputation;
       reputation = parseInt(reputation);
       let rep = String(reputation);
@@ -167,7 +181,7 @@ module.exports = ezhelp.js => {
       return out;
     },
 
-    ESCORinECOvalue: function(
+    ESCORinECOvalue: function (
       ESCOR,
       totalESCOR,
       ESCORbackingECOfundBalance
@@ -178,7 +192,7 @@ module.exports = ezhelp.js => {
       );
     },
 
-    commentPermlink: function(parentAuthor, parentPermlink) {
+    commentPermlink: function (parentAuthor, parentPermlink) {
       const timeStr = new Date()
         .toISOString()
         .replace(/[^a-zA-Z0-9]+/g, "")
@@ -187,7 +201,7 @@ module.exports = ezhelp.js => {
       return "re-" + parentAuthor + "-" + parentPermlink + "-" + timeStr;
     },
 
-    amount: function(amount, asset) {
+    amount: function (amount, asset) {
       return amount.toFixed(3) + " " + asset;
     },
     numberWithCommas,

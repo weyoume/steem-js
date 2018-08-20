@@ -19,7 +19,7 @@ module.exports = [
       "permlink",
       "title",
       "body",
-      "json_metadata"
+      "json"
     ]
   },
   {
@@ -34,7 +34,7 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "transfer_to_vesting",
+    "operation": "transferECOtoESCORfund",
     "params": [
       "from",
       "to",
@@ -43,10 +43,10 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "withdraw_vesting",
+    "operation": "withdrawESCOR",
     "params": [
       "account",
-      "vesting_shares"
+      "ESCOR"
     ]
   },
   {
@@ -96,28 +96,28 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "account_create",
+    "operation": "accountCreate",
     "params": [
       "fee",
       "creator",
-      "new_account_name",
+      "newAccountName",
       "owner",
       "active",
       "posting",
-      "memo_key",
-      "json_metadata"
+      "memoKey",
+      "json"
     ]
   },
   {
     "roles": ["active", "owner"],
-    "operation": "account_update",
+    "operation": "accountUpdate",
     "params": [
       "account",
       "owner",
       "active",
       "posting",
-      "memo_key",
-      "json_metadata"
+      "memoKey",
+      "json"
     ]
   },
   {
@@ -133,7 +133,7 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "account_witness_vote",
+    "operation": "accountWitnessVote",
     "params": [
       "account",
       "witness",
@@ -169,7 +169,7 @@ module.exports = [
   },
   {
     "roles": ["posting", "active", "owner"],
-    "operation": "delete_comment",
+    "operation": "deleteComment",
     "params": [
       "author",
       "permlink"
@@ -177,7 +177,7 @@ module.exports = [
   },
   {
     "roles": ["posting", "active", "owner"],
-    "operation": "custom_json",
+    "operation": "customJson",
     "params": [
       "required_auths",
       "required_posting_auths",
@@ -192,20 +192,20 @@ module.exports = [
       "author",
       "permlink",
       "max_accepted_payout",
-      "percent_ezira_dollars",
+      "percent_EUSD",
       "allow_votes",
-      "allow_curation_rewards",
+      "allow_curationRewards",
       "extensions"
     ]
   },
   {
     "roles": ["active", "owner"],
-    "operation": "set_withdraw_vesting_route",
+    "operation": "setWithdrawESCORasECOroute",
     "params": [
       "from_account",
       "to_account",
       "percent",
-      "auto_vest"
+      "autoESCOR"
     ]
   },
   {
@@ -241,8 +241,8 @@ module.exports = [
     "roles": ["active", "owner"],
     "operation": "request_account_recovery",
     "params": [
-      "recovery_account",
-      "account_to_recover",
+      "recoveryAccount",
+      "accountToRecover",
       "new_owner_authority",
       "extensions"
     ]
@@ -251,7 +251,7 @@ module.exports = [
     "roles": ["owner"],
     "operation": "recover_account",
     "params": [
-      "account_to_recover",
+      "accountToRecover",
       "new_owner_authority",
       "recent_owner_authority",
       "extensions"
@@ -259,10 +259,10 @@ module.exports = [
   },
   {
     "roles": ["owner"],
-    "operation": "change_recovery_account",
+    "operation": "change_recoveryAccount",
     "params": [
-      "account_to_recover",
-      "new_recovery_account",
+      "accountToRecover",
+      "new_recoveryAccount",
       "extensions"
     ]
   },
@@ -274,12 +274,12 @@ module.exports = [
       "to",
       "agent",
       "escrow_id",
-      "sbd_amount",
-      "ezira_amount",
+      "EUSDamount",
+      "ECOamount",
       "fee",
       "ratification_deadline",
       "escrow_expiration",
-      "json_meta"
+      "json"
     ]
   },
   {
@@ -303,8 +303,8 @@ module.exports = [
       "who",
       "receiver",
       "escrow_id",
-      "sbd_amount",
-      "ezira_amount"
+      "EUSDamount",
+      "ECOamount"
     ]
   },
   {
@@ -329,7 +329,7 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "transfer_to_savings",
+    "operation": "transferToSavings",
     "params": [
       "from",
       "to",
@@ -339,7 +339,7 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "transfer_from_savings",
+    "operation": "transferFromSavings",
     "params": [
       "from",
       "request_id",
@@ -350,7 +350,7 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "cancel_transfer_from_savings",
+    "operation": "cancelTransferFromSavings",
     "params": [
       "from",
       "request_id"
@@ -392,36 +392,36 @@ module.exports = [
   },
   {
     "roles": ["posting", "active", "owner"],
-    "operation": "claim_reward_balance",
+    "operation": "claimRewardBalance",
     "params": [
       "account",
-      "reward_ezira",
-      "reward_sbd",
-      "reward_vests"
+      "ECOreward",
+      "EUSDreward",
+      "ESCORreward"
     ]
   },
   {
     "roles": ["active", "owner"],
-    "operation": "delegate_vesting_shares",
+    "operation": "delegateESCOR",
     "params": [
       "delegator",
       "delegatee",
-      "vesting_shares"
+      "ESCOR"
     ]
   },
   {
     "roles": ["active", "owner"],
-    "operation": "account_create_with_delegation",
+    "operation": "accountCreateWithDelegation",
     "params": [
       "fee",
       "delegation",
       "creator",
-      "new_account_name",
+      "newAccountName",
       "owner",
       "active",
       "posting",
-      "memo_key",
-      "json_metadata",
+      "memoKey",
+      "json",
       "extensions"
     ]
   },
@@ -462,7 +462,7 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "fill_vesting_withdraw",
+    "operation": "fillESCORWithdraw",
     "params": [
       "from_account",
       "to_account",
@@ -484,7 +484,7 @@ module.exports = [
   },
   {
     "roles": ["posting", "active", "owner"],
-    "operation": "fill_transfer_from_savings",
+    "operation": "fill_transferFromSavings",
     "params": [
       "from",
       "to",

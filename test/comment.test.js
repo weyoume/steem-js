@@ -1,15 +1,15 @@
 import Promise from 'bluebird';
 import should from 'should';
-import ezira from '../src';
+import ezhelp.js from '../src';
 import pkg from '../package.json';
 
-const username = process.env.EZIRA_USERNAME || 'guest123';
-const password = process.env.EZIRA_PASSWORD;
+const username = process.env.EZNODE_USERNAME || 'guest123';
+const password = process.env.EZNODE_PASSWORD;
 const postingWif = password
-  ? ezira.auth.toWif(username, password, 'posting')
+  ? ezhelp.js.auth.toWif(username, password, 'posting')
   : '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg';
 
-describe('ezira.broadcast:', () => {
+describe('ezhelp.js.broadcast:', () => {
 
   describe('comment with options', () => {
     before(() => {
@@ -17,7 +17,7 @@ describe('ezira.broadcast:', () => {
     });
 
     it('works', async () => {
-      const permlink = ezira.formatter.commentPermlink('siol', 'test');
+      const permlink = ezhelp.js.formatter.commentPermlink('siol', 'test');
       const operations = [
         ['comment',
           {
@@ -27,19 +27,19 @@ describe('ezira.broadcast:', () => {
             permlink,
             title: 'Test',
             body: `This is a test using Ezira.js v${pkg.version}.`,
-            json_metadata : JSON.stringify({
+            json : JSON.stringify({
               tags: ['test'],
-              app: `ezirajs/${pkg.version}`
+              app: `ezhelp.js/${pkg.version}`
             })
           }
         ],
         ['comment_options', {
           author: username,
           permlink,
-          max_accepted_payout: '1000000.000 SBD',
-          percent_ezira_dollars: 10000,
+          max_accepted_payout: '1000000.000 EUSD',
+          percent_EUSD: 10000,
           allow_votes: true,
-          allow_curation_rewards: true,
+          allow_curationRewards: true,
           extensions: [
             [0, {
               beneficiaries: [
@@ -51,7 +51,7 @@ describe('ezira.broadcast:', () => {
         }]
       ];
 
-      const tx = await ezira.broadcast.sendAsync(
+      const tx = await ezhelp.js.broadcast.sendAsync(
         { operations, extensions: [] },
         { posting: postingWif }
       );

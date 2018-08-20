@@ -1,32 +1,32 @@
-var ezira = require('../lib');
+var ezhelp.js = require('../lib');
 
-ezira.api.getAccountCount(function(err, result) {
+ezhelp.js.api.getAccountCount(function(err, result) {
 	console.log(err, result);
 });
 
-ezira.api.getAccounts(['dan'], function(err, result) {
+ezhelp.js.api.getAccounts(['dan'], function(err, result) {
 	console.log(err, result);
-	var reputation = ezira.formatter.reputation(result[0].reputation);
+	var reputation = ezhelp.js.formatter.reputation(result[0].reputation);
 	console.log(reputation);
 });
 
-ezira.api.getState('trending/ezira', function(err, result) {
+ezhelp.js.api.getState('trending/ezira', function(err, result) {
 	console.log(err, result);
 });
 
-ezira.api.getFollowing('ned', 0, 'blog', 10, function(err, result) {
+ezhelp.js.api.getFollowing('ned', 0, 'blog', 10, function(err, result) {
 	console.log(err, result);
 });
 
-ezira.api.getFollowers('dan', 0, 'blog', 10, function(err, result) {
+ezhelp.js.api.getFollowers('dan', 0, 'blog', 10, function(err, result) {
 	console.log(err, result);
 });
 
-ezira.api.streamOperations(function(err, result) {
+ezhelp.js.api.streamOperations(function(err, result) {
 	console.log(err, result);
 });
 
-ezira.api.getDiscussionsByActive({
+ezhelp.js.api.getDiscussionsByActive({
   limit: 10,
   start_author: 'thecastle',
   start_permlink: 'this-week-in-level-design-1-22-2017'

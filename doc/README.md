@@ -25,40 +25,40 @@
 
 # Install
 ```
-$ npm install ezira --save
+$ npm install --save ezhelp.js
 ```
 
 # Browser 
 ```html 
-<script src="./ezira.min.js"></script>
+<script src="./ezhelp.min.js"></script>
 <script>
-ezira.api.getAccounts(['ned', 'dan'], function(err, response){
+ezhelp.api.getAccounts(['ned', 'dan'], function(err, response){
     console.log(err, response);
 });
 </script>
 ```
 
 ## Config
-Default config should work with ezira. however you can change it to work with golos
+Default config should work with ezhelp. however you can change it to work with golos
 as 
 ```js
-ezira.api.setOptions({ url: 'wss://ws.golos.io' }); // assuming websocket is work at ws.golos.io
-ezira.config.set('address_prefix','GLS');
-ezira.config.set('chain_id','782a3039b478c839e4cb0c941ff4eaeb7df40bdd68bd441afd444b9da763de12');
+ezhelp.api.setOptions({ url: 'wss://ws.golos.io' }); // assuming websocket is work at ws.golos.io
+ezhelp.config.set('address_prefix','GLS');
+ezhelp.config.set('chain_id','782a3039b478c839e4cb0c941ff4eaeb7df40bdd68bd441afd444b9da763de12');
 ```
 ### set
 ```
-ezira.config.set('address_prefix','EZT');
+ezhelp.config.set('address_prefix','EZT');
 ```
 ### get
 ```
-ezira.config.get('chain_id');
+ezhelp.config.get('chain_id');
 ```
 
 ## JSON-RPC
 Here is how to activate JSON-RPC transport:
 ```js
-ezira.api.setOptions({ url: 'https://api.ezira.io' });
+ezhelp.api.setOptions({ url: 'https://api.ezira.io' });
 ```
 
 # API
@@ -67,25 +67,25 @@ ezira.api.setOptions({ url: 'https://api.ezira.io' });
 
 ### Set Subscribe Callback
 ```
-ezira.api.setSubscribeCallback(callback, clearFilter, function(err, result) {
+ezhelp.api.setSubscribeCallback(callback, clearFilter, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Set Pending Transaction Callback
 ```
-ezira.api.setPendingTransactionCallback(cb, function(err, result) {
+ezhelp.api.setPendingTransactionCallback(cb, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Set Block Applied Callback
 ```
-ezira.api.setBlockAppliedCallback(cb, function(err, result) {
+ezhelp.api.setBlockAppliedCallback(cb, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Cancel All Subscriptions
 ```
-ezira.api.cancelAllSubscriptions(function(err, result) {
+ezhelp.api.cancelAllSubscriptions(function(err, result) {
   console.log(err, result);
 });
 ```
@@ -94,73 +94,73 @@ ezira.api.cancelAllSubscriptions(function(err, result) {
 
 ### Get Trending Tags
 ```
-ezira.api.getTrendingTags(afterTag, limit, function(err, result) {
+ezhelp.api.getTrendingTags(afterTag, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Trending
 ```
-ezira.api.getDiscussionsByTrending(query, function(err, result) {
+ezhelp.api.getDiscussionsByTrending(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Created
 ```
-ezira.api.getDiscussionsByCreated(query, function(err, result) {
+ezhelp.api.getDiscussionsByCreated(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Active
 ```
-ezira.api.getDiscussionsByActive(query, function(err, result) {
+ezhelp.api.getDiscussionsByActive(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Cashout
 ```
-ezira.api.getDiscussionsByCashout(query, function(err, result) {
+ezhelp.api.getDiscussionsByCashout(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Payout
 ```
-ezira.api.getDiscussionsByPayout(query, function(err, result) {
+ezhelp.api.getDiscussionsByPayout(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Votes
 ```
-ezira.api.getDiscussionsByVotes(query, function(err, result) {
+ezhelp.api.getDiscussionsByVotes(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Children
 ```
-ezira.api.getDiscussionsByChildren(query, function(err, result) {
+ezhelp.api.getDiscussionsByChildren(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Hot
 ```
-ezira.api.getDiscussionsByHot(query, function(err, result) {
+ezhelp.api.getDiscussionsByHot(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Feed
 ```
-ezira.api.getDiscussionsByFeed(query, function(err, result) {
+ezhelp.api.getDiscussionsByFeed(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Blog
 ```
-ezira.api.getDiscussionsByBlog(query, function(err, result) {
+ezhelp.api.getDiscussionsByBlog(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Comments
 ```
-ezira.api.getDiscussionsByComments(query, function(err, result) {
+ezhelp.api.getDiscussionsByComments(query, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -169,43 +169,43 @@ ezira.api.getDiscussionsByComments(query, function(err, result) {
 
 ### Get Block Header
 ```
-ezira.api.getBlockHeader(blockNum, function(err, result) {
+ezhelp.api.getBlockHeader(blockNum, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Block
 ```
-ezira.api.getBlock(blockNum, function(err, result) {
+ezhelp.api.getBlock(blockNum, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get State
 ```
-ezira.api.getState(path, function(err, result) {
+ezhelp.api.getState(path, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Trending Categories
 ```
-ezira.api.getTrendingCategories(after, limit, function(err, result) {
+ezhelp.api.getTrendingCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Best Categories
 ```
-ezira.api.getBestCategories(after, limit, function(err, result) {
+ezhelp.api.getBestCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Active Categories
 ```
-ezira.api.getActiveCategories(after, limit, function(err, result) {
+ezhelp.api.getActiveCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Recent Categories
 ```
-ezira.api.getRecentCategories(after, limit, function(err, result) {
+ezhelp.api.getRecentCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -214,55 +214,55 @@ ezira.api.getRecentCategories(after, limit, function(err, result) {
 
 ### Get Config
 ```
-ezira.api.getConfig(function(err, result) {
+ezhelp.api.getConfig(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Dynamic Global Properties
 ```
-ezira.api.getDynamicGlobalProperties(function(err, result) {
+ezhelp.api.getDynamicGlobalProperties(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Chain Properties
 ```
-ezira.api.getChainProperties(function(err, result) {
+ezhelp.api.getChainProperties(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Feed History
 ```
-ezira.api.getFeedHistory(function(err, result) {
+ezhelp.api.getFeedHistory(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Current Median History Price
 ```
-ezira.api.getCurrentMedianHistoryPrice(function(err, result) {
+ezhelp.api.getCurrentMedianHistoryPrice(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Hardfork Version
 ```
-ezira.api.getHardforkVersion(function(err, result) {
+ezhelp.api.getHardforkVersion(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Next Scheduled Hardfork
 ```
-ezira.api.getNextScheduledHardfork(function(err, result) {
+ezhelp.api.getNextScheduledHardfork(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Reward Fund
 ```
-ezira.api.getRewardFund(name, function(err, result) {
+ezhelp.api.getRewardFund(name, function(err, result) {
   console.log(err, result);
 });
 ```
-### Get Vesting Delegations
+### Get eScore Delegations
 ```
-ezira.api.getVestingDelegations(account, from, limit, function(err, result) {
+ezhelp.api.getESCORdelegations(account, from, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -271,7 +271,7 @@ ezira.api.getVestingDelegations(account, from, limit, function(err, result) {
 
 ### Get Key References
 ```
-ezira.api.getKeyReferences(key, function(err, result) {
+ezhelp.api.getKeyReferences(key, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -280,55 +280,55 @@ ezira.api.getKeyReferences(key, function(err, result) {
 
 ### Get Accounts
 ```
-ezira.api.getAccounts(names, function(err, result) {
+ezhelp.api.getAccounts(names, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account References
 ```
-ezira.api.getAccountReferences(accountId, function(err, result) {
+ezhelp.api.getAccountReferences(accountId, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Lookup Account Names
 ```
-ezira.api.lookupAccountNames(accountNames, function(err, result) {
+ezhelp.api.lookupAccountNames(accountNames, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Lookup Accounts
 ```
-ezira.api.lookupAccounts(lowerBoundName, limit, function(err, result) {
+ezhelp.api.lookupAccounts(lowerBoundName, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account Count
 ```
-ezira.api.getAccountCount(function(err, result) {
+ezhelp.api.getAccountCount(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Conversion Requests
 ```
-ezira.api.getConversionRequests(accountName, function(err, result) {
+ezhelp.api.getConversionRequests(accountName, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account History
 ```
-ezira.api.getAccountHistory(account, from, limit, function(err, result) {
+ezhelp.api.getAccountHistory(account, from, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Owner History
 ```
-ezira.api.getOwnerHistory(account, function(err, result) {
+ezhelp.api.getOwnerHistory(account, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Recovery Request
 ```
-ezira.api.getRecoveryRequest(account, function(err, result) {
+ezhelp.api.getRecoveryRequest(account, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -337,19 +337,19 @@ ezira.api.getRecoveryRequest(account, function(err, result) {
 
 ### Get Order Book
 ```
-ezira.api.getOrderBook(limit, function(err, result) {
+ezhelp.api.getOrderBook(limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Open Orders
 ```
-ezira.api.getOpenOrders(owner, function(err, result) {
+ezhelp.api.getOpenOrders(owner, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Liquidity Queue
 ```
-ezira.api.getLiquidityQueue(startAccount, limit, function(err, result) {
+ezhelp.api.getLiquidityQueue(startAccount, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -358,37 +358,37 @@ ezira.api.getLiquidityQueue(startAccount, limit, function(err, result) {
 
 ### Get Transaction Hex
 ```
-ezira.api.getTransactionHex(trx, function(err, result) {
+ezhelp.api.getTransactionHex(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Transaction
 ```
-ezira.api.getTransaction(trxId, function(err, result) {
+ezhelp.api.getTransaction(trxId, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Required Signatures
 ```
-ezira.api.getRequiredSignatures(trx, availableKeys, function(err, result) {
+ezhelp.api.getRequiredSignatures(trx, availableKeys, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Potential Signatures
 ```
-ezira.api.getPotentialSignatures(trx, function(err, result) {
+ezhelp.api.getPotentialSignatures(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Verify Authority
 ```
-ezira.api.verifyAuthority(trx, function(err, result) {
+ezhelp.api.verifyAuthority(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Verify Account Authority
 ```
-ezira.api.verifyAccountAuthority(nameOrId, signers, function(err, result) {
+ezhelp.api.verifyAccountAuthority(nameOrId, signers, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -397,13 +397,13 @@ ezira.api.verifyAccountAuthority(nameOrId, signers, function(err, result) {
 
 ### Get Active Votes
 ```
-ezira.api.getActiveVotes(author, permlink, function(err, result) {
+ezhelp.api.getActiveVotes(author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account Votes
 ```
-ezira.api.getAccountVotes(voter, function(err, result) {
+ezhelp.api.getAccountVotes(voter, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -413,25 +413,25 @@ ezira.api.getAccountVotes(voter, function(err, result) {
 
 ### Get Content
 ```
-ezira.api.getContent(author, permlink, function(err, result) {
+ezhelp.api.getContent(author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Content Replies
 ```
-ezira.api.getContentReplies(author, permlink, function(err, result) {
+ezhelp.api.getContentReplies(author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Author Before Date
 ```
-ezira.api.getDiscussionsByAuthorBeforeDate(author, startPermlink, beforeDate, limit, function(err, result) {
+ezhelp.api.getDiscussionsByAuthorBeforeDate(author, startPermlink, beforeDate, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Replies By Last Update
 ```
-ezira.api.getRepliesByLastUpdate(startAuthor, startPermlink, limit, function(err, result) {
+ezhelp.api.getRepliesByLastUpdate(startAuthor, startPermlink, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -441,43 +441,43 @@ ezira.api.getRepliesByLastUpdate(startAuthor, startPermlink, limit, function(err
 
 ### Get Witnesses
 ```
-ezira.api.getWitnesses(witnessIds, function(err, result) {
+ezhelp.api.getWitnesses(witnessIds, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Witness By Account
 ```
-ezira.api.getWitnessByAccount(accountName, function(err, result) {
+ezhelp.api.getWitnessByAccount(accountName, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Witnesses By Vote
 ```
-ezira.api.getWitnessesByVote(from, limit, function(err, result) {
+ezhelp.api.getWitnessesByVote(from, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Lookup Witness Accounts
 ```
-ezira.api.lookupWitnessAccounts(lowerBoundName, limit, function(err, result) {
+ezhelp.api.lookupWitnessAccounts(lowerBoundName, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Witness Count
 ```
-ezira.api.getWitnessCount(function(err, result) {
+ezhelp.api.getWitnessCount(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Active Witnesses
 ```
-ezira.api.getActiveWitnesses(function(err, result) {
+ezhelp.api.getActiveWitnesses(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Miner Queue
 ```
-ezira.api.getMinerQueue(function(err, result) {
+ezhelp.api.getMinerQueue(function(err, result) {
   console.log(err, result);
 });
 ```
@@ -489,14 +489,14 @@ ezira.api.getMinerQueue(function(err, result) {
 /!\ It's **not safe** to use this method with your username and password. This method always return `true` and is only used in intern with empty values to enable broadcast.
 
 ```
-ezira.api.login('', '', function(err, result) {
+ezhelp.api.login('', '', function(err, result) {
   console.log(err, result);
 });
 ```
 
 ### Get Api By Name
 ```
-ezira.api.getApiByName(apiName, function(err, result) {
+ezhelp.api.getApiByName(apiName, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -505,19 +505,19 @@ ezira.api.getApiByName(apiName, function(err, result) {
 
 ### Get Followers
 ```
-ezira.api.getFollowers(following, startFollower, followType, limit, function(err, result) {
+ezhelp.api.getFollowers(following, startFollower, followType, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Following
 ```
-ezira.api.getFollowing(follower, startFollowing, followType, limit, function(err, result) {
+ezhelp.api.getFollowing(follower, startFollowing, followType, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Follow Count
 ```
-ezira.api.getFollowCount(account, function(err, result) {
+ezhelp.api.getFollowCount(account, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -526,13 +526,13 @@ ezira.api.getFollowCount(account, function(err, result) {
 
 ### Broadcast Transaction Synchronous
 ```
-ezira.api.broadcastTransactionSynchronous(trx, function(err, result) {
+ezhelp.api.broadcastTransactionSynchronous(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Broadcast Block
 ```
-ezira.api.broadcastBlock(b, function(err, result) {
+ezhelp.api.broadcastBlock(b, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -541,301 +541,301 @@ ezira.api.broadcastBlock(b, function(err, result) {
 
 ### Account Create
 ```
-ezira.broadcast.accountCreate(wif, fee, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
+ezhelp.broadcast.accountCreate(wif, fee, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Create With Delegation
 ```
-ezira.broadcast.accountCreateWithDelegation(wif, fee, delegation, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, extensions, function(err, result) {
+ezhelp.broadcast.accountCreateWithDelegation(wif, fee, delegation, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
-### Delegate Vesting Shares
+### Delegate E Score
 ```
-ezira.broadcast.delegateVestingShares(wif, delegator, delegatee, vesting_shares, function(err, result) {
+ezhelp.broadcast.delegateESCOR(wif, delegator, delegatee, ESCOR, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Update
 ```
-ezira.broadcast.accountUpdate(wif, account, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
+ezhelp.broadcast.accountUpdate(wif, account, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Witness Proxy
 ```
-ezira.broadcast.accountWitnessProxy(wif, account, proxy, function(err, result) {
+ezhelp.broadcast.accountWitnessProxy(wif, account, proxy, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Witness Vote
 ```
-ezira.broadcast.accountWitnessVote(wif, account, witness, approve, function(err, result) {
+ezhelp.broadcast.accountWitnessVote(wif, account, witness, approve, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Challenge Authority
 ```
-ezira.broadcast.challengeAuthority(wif, challenger, challenged, requireOwner, function(err, result) {
+ezhelp.broadcast.challengeAuthority(wif, challenger, challenged, requireOwner, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Change Recovery Account
 ```
-ezira.broadcast.changeRecoveryAccount(wif, accountToRecover, newRecoveryAccount, extensions, function(err, result) {
+ezhelp.broadcast.changeRecoveryAccount(wif, accountToRecover, newRecoveryAccount, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment
 ```
-ezira.broadcast.comment(wif, parentAuthor, parentPermlink, author, permlink, title, body, jsonMetadata, function(err, result) {
+ezhelp.broadcast.comment(wif, parentAuthor, parentPermlink, author, permlink, title, body, jsonMetadata, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Options
 ```
-ezira.broadcast.commentOptions(wif, author, permlink, maxAcceptedPayout, percentEziraDollars, allowVotes, allowCurationRewards, extensions, function(err, result) {
+ezhelp.broadcast.commentOptions(wif, author, permlink, maxAcceptedPayout, percenteUSD, allowVotes, allowCurationRewards, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Payout
 ```
-ezira.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
+ezhelp.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Reward
 ```
-ezira.broadcast.commentReward(wif, author, permlink, sbdPayout, vestingPayout, function(err, result) {
+ezhelp.broadcast.commentReward(wif, author, permlink, eUSDpayout, ESCORpayout, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Convert
 ```
-ezira.broadcast.convert(wif, owner, requestid, amount, function(err, result) {
+ezhelp.broadcast.convert(wif, owner, requestid, amount, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Curate Reward
 ```
-ezira.broadcast.curateReward(wif, curator, reward, commentAuthor, commentPermlink, function(err, result) {
+ezhelp.broadcast.curateReward(wif, curator, reward, commentAuthor, commentPermlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Custom
 ```
-ezira.broadcast.custom(wif, requiredAuths, id, data, function(err, result) {
+ezhelp.broadcast.custom(wif, requiredAuths, id, data, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Custom Binary
 ```
-ezira.broadcast.customBinary(wif, id, data, function(err, result) {
+ezhelp.broadcast.customBinary(wif, id, data, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Custom Json
 ```
-ezira.broadcast.customJson(wif, requiredAuths, requiredPostingAuths, id, json, function(err, result) {
+ezhelp.broadcast.customJson(wif, requiredAuths, requiredPostingAuths, id, json, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Delete Comment
 ```
-ezira.broadcast.deleteComment(wif, author, permlink, function(err, result) {
+ezhelp.broadcast.deleteComment(wif, author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Dispute
 ```
-ezira.broadcast.escrowDispute(wif, from, to, agent, who, escrowId, function(err, result) {
+ezhelp.broadcast.escrowDispute(wif, from, to, agent, who, escrowId, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Release
 ```
-ezira.broadcast.escrowRelease(wif, from, to, agent, who, receiver, escrowId, sbdAmount, eziraAmount, function(err, result) {
+ezhelp.broadcast.escrowRelease(wif, from, to, agent, who, receiver, escrowId, eUSDAmount, ECOAmount, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Transfer
 ```
-ezira.broadcast.escrowTransfer(wif, from, to, agent, escrowId, sbdAmount, eziraAmount, fee, ratificationDeadline, escrowExpiration, jsonMeta, function(err, result) {
+ezhelp.broadcast.escrowTransfer(wif, from, to, agent, escrowId, eUSDAmount, ECOAmount, fee, ratificationDeadline, escrowExpiration, jsonMeta, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Feed Publish
 ```
-ezira.broadcast.feedPublish(wif, publisher, exchangeRate, function(err, result) {
+ezhelp.broadcast.feedPublish(wif, publisher, exchangeRate, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Pow2
 ```
-ezira.broadcast.pow2(wif, work, newOwnerKey, props, function(err, result) {
+ezhelp.broadcast.pow2(wif, work, newOwnerKey, props, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill Convert Request
 ```
-ezira.broadcast.fillConvertRequest(wif, owner, requestid, amountIn, amountOut, function(err, result) {
+ezhelp.broadcast.fillConvertRequest(wif, owner, requestid, amountIn, amountOut, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill Order
 ```
-ezira.broadcast.fillOrder(wif, currentOwner, currentOrderid, currentPays, openOwner, openOrderid, openPays, function(err, result) {
+ezhelp.broadcast.fillOrder(wif, currentOwner, currentOrderid, currentPays, openOwner, openOrderid, openPays, function(err, result) {
   console.log(err, result);
 });
 ```
-### Fill Vesting Withdraw
+### Fill eScore Withdraw With ECO
 ```
-ezira.broadcast.fillVestingWithdraw(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
+ezhelp.broadcast.fillESCORWithdrawWithECO(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Interest
 ```
-ezira.broadcast.interest(wif, owner, interest, function(err, result) {
+ezhelp.broadcast.interest(wif, owner, interest, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Limit Order Cancel
 ```
-ezira.broadcast.limitOrderCancel(wif, owner, orderid, function(err, result) {
+ezhelp.broadcast.limitOrderCancel(wif, owner, orderid, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Limit Order Create
 ```
-ezira.broadcast.limitOrderCreate(wif, owner, orderid, amountToSell, minToReceive, fillOrKill, expiration, function(err, result) {
+ezhelp.broadcast.limitOrderCreate(wif, owner, orderid, amountToSell, minToReceive, fillOrKill, expiration, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Limit Order Create2
 ```
-ezira.broadcast.limitOrderCreate2(wif, owner, orderid, amountToSell, exchangeRate, fillOrKill, expiration, function(err, result) {
+ezhelp.broadcast.limitOrderCreate2(wif, owner, orderid, amountToSell, exchangeRate, fillOrKill, expiration, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Liquidity Reward
 ```
-ezira.broadcast.liquidityReward(wif, owner, payout, function(err, result) {
+ezhelp.broadcast.liquidityReward(wif, owner, payout, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Pow
 ```
-ezira.broadcast.pow(wif, worker, input, signature, work, function(err, result) {
+ezhelp.broadcast.pow(wif, worker, input, signature, work, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Prove Authority
 ```
-ezira.broadcast.proveAuthority(wif, challenged, requireOwner, function(err, result) {
+ezhelp.broadcast.proveAuthority(wif, challenged, requireOwner, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Recover Account
 ```
-ezira.broadcast.recoverAccount(wif, accountToRecover, newOwnerAuthority, recentOwnerAuthority, extensions, function(err, result) {
+ezhelp.broadcast.recoverAccount(wif, accountToRecover, newOwnerAuthority, recentOwnerAuthority, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Report Over Production
 ```
-ezira.broadcast.reportOverProduction(wif, reporter, firstBlock, secondBlock, function(err, result) {
+ezhelp.broadcast.reportOverProduction(wif, reporter, firstBlock, secondBlock, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Request Account Recovery
 ```
-ezira.broadcast.requestAccountRecovery(wif, recoveryAccount, accountToRecover, newOwnerAuthority, extensions, function(err, result) {
+ezhelp.broadcast.requestAccountRecovery(wif, recoveryAccount, accountToRecover, newOwnerAuthority, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Approve
 ```
-ezira.broadcast.escrowApprove(wif, from, to, agent, who, escrowId, approve, function(err, result) {
+ezhelp.broadcast.escrowApprove(wif, from, to, agent, who, escrowId, approve, function(err, result) {
   console.log(err, result);
 });
 ```
-### Set Withdraw Vesting Route
+### Set Withdraw eScore as ECO Route
 ```
-ezira.broadcast.setWithdrawVestingRoute(wif, fromAccount, toAccount, percent, autoVest, function(err, result) {
+ezhelp.broadcast.setWithdrawESCORasECOroute(wif, fromAccount, toAccount, percent, autoESCOR, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Transfer
 ```
-ezira.broadcast.transfer(wif, from, to, amount, memo, function(err, result) {
+ezhelp.broadcast.transfer(wif, from, to, amount, memo, function(err, result) {
   console.log(err, result);
 });
 ```
-### Transfer To Vesting
+### Transfer To eScore
 ```
-ezira.broadcast.transferToVesting(wif, from, to, amount, function(err, result) {
+ezhelp.broadcast.transferECOtoESCORfund(wif, from, to, amount, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Vote
 ```
-ezira.broadcast.vote(wif, voter, author, permlink, weight, function(err, result) {
+ezhelp.broadcast.vote(wif, voter, author, permlink, weight, function(err, result) {
   console.log(err, result);
 });
 ```
-### Withdraw Vesting
+### Withdraw eScore as ECO
 ```
-ezira.broadcast.withdrawVesting(wif, account, vestingShares, function(err, result) {
+ezhelp.broadcast.withdrawESCORasECO(wif, account, ESCOR, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Witness Update
 ```
-ezira.broadcast.witnessUpdate(wif, owner, url, blockSigningKey, props, fee, function(err, result) {
+ezhelp.broadcast.witnessUpdate(wif, owner, url, blockSigningKey, props, fee, function(err, result) {
   console.log(err, result);
 });
 ```
-### Fill Vesting Withdraw
+### Fill eScore Withdraw with ECO
 ```
-ezira.broadcast.fillVestingWithdraw(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
+ezhelp.broadcast.fillESCORWithdrawWithECO(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill Order
 ```
-ezira.broadcast.fillOrder(wif, currentOwner, currentOrderid, currentPays, openOwner, openOrderid, openPays, function(err, result) {
+ezhelp.broadcast.fillOrder(wif, currentOwner, currentOrderid, currentPays, openOwner, openOrderid, openPays, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill Transfer From Savings
 ```
-ezira.broadcast.fillTransferFromSavings(wif, from, to, amount, requestId, memo, function(err, result) {
+ezhelp.broadcast.fillTransferFromSavings(wif, from, to, amount, requestId, memo, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Payout
 ```
-ezira.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
+ezhelp.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Transfer To Savings
 ```
-ezira.broadcast.transferToSavings(wif, from, to, amount, memo, function(err, result) {
+ezhelp.broadcast.transferToSavings(wif, from, to, amount, memo, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Transfer From Savings
 ```
-ezira.broadcast.transferFromSavings(wif, from, requestId, to, amount, memo, function(err, result) {
+ezhelp.broadcast.transferFromSavings(wif, from, requestId, to, amount, memo, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Cancel Transfer From Savings
 ```
-ezira.broadcast.cancelTransferFromSavings(wif, from, requestId, function(err, result) {
+ezhelp.broadcast.cancelTransferFromSavings(wif, from, requestId, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -843,7 +843,7 @@ ezira.broadcast.cancelTransferFromSavings(wif, from, requestId, function(err, re
 ### Multisig
 You can use multisignature to broadcast an operation.
 ```
-ezira.broadcast.send({
+ezhelp.broadcast.send({
   extensions: [],
   operations: [
     ['vote', {
@@ -861,49 +861,49 @@ ezira.broadcast.send({
 
 ### Verify
 ```
-ezira.auth.verify(name, password, auths);
+ezhelp.auth.verify(name, password, auths);
 ```
 
 ### Generate Keys
 ```
-ezira.auth.generateKeys(name, password, roles);
+ezhelp.auth.generateKeys(name, password, roles);
 ```
 
 ### Get Private Keys
 ```
-ezira.auth.getPrivateKeys(name, password, roles);
+ezhelp.auth.getPrivateKeys(name, password, roles);
 ```
 
 ### Is Wif
 ```
-ezira.auth.isWif(privWif);
+ezhelp.auth.isWif(privWif);
 ```
 
 ### To Wif
 ```
-ezira.auth.toWif(name, password, role);
+ezhelp.auth.toWif(name, password, role);
 ```
 
 ### Wif Is Valid
 ```
-ezira.auth.wifIsValid(privWif, pubWif);
+ezhelp.auth.wifIsValid(privWif, pubWif);
 ```
 
 ### Wif To Public
 ```
-ezira.auth.wifToPublic(privWif);
+ezhelp.auth.wifToPublic(privWif);
 ```
 
 ### Sign Transaction
 ```
-ezira.auth.signTransaction(trx, keys);
+ezhelp.auth.signTransaction(trx, keys);
 ```
 
 # Formatter
 
 ### Create Suggested Password
 ```
-var password = ezira.formatter.createSuggestedPassword();
+var password = ezhelp.formatter.createSuggestedPassword();
 console.log(password);
 // => 'GAz3GYFvvQvgm7t2fQmwMDuXEzDqTzn9'
 ```
@@ -912,38 +912,38 @@ console.log(password);
 ```
 var parentAuthor = 'ned';
 var parentPermlink = 'a-selfie';
-var commentPermlink = ezira.formatter.commentPermlink(parentAuthor, parentPermlink);
+var commentPermlink = ezhelp.formatter.commentPermlink(parentAuthor, parentPermlink);
 console.log(commentPermlink);
 // => 're-ned-a-selfie-20170621t080403765z'
 ```
 
 ### Estimate Account Value
 ```
-var eziraPower = ezira.formatter.estimateAccountValue(account);
+var eUSD = ezhelp.formatter.estimateAccountValue(account);
 ```
 
 ### Reputation
 ```
-var reputation = ezira.formatter.reputation(3512485230915);
+var reputation = ezhelp.formatter.reputation(3512485230915);
 console.log(reputation);
 // => 56
 ```
 
-### Vest To Ezira
+### ESCOR To ECO
 ```
-var eziraPower = ezira.formatter.vestToEzira(vestingShares, totalVestingShares, totalVestingFundEzira);
-console.log(eziraPower);
+var ECO = ezhelp.formatter.ESCORinECO(ESCOR, totalESCOR, ESCORBackingECOFundBalance);
+console.log(ECO);
 ```
 
 # Utils
 
 ### Validate Username
 ```
-var isValidUsername = ezira.utils.validateAccountName('test1234');
+var isValidUsername = ezhelp.utils.validateAccountName('test1234');
 console.log(isValidUsername);
 // => 'null'
 
-var isValidUsername = ezira.utils.validateAccountName('a1');
+var isValidUsername = ezhelp.utils.validateAccountName('a1');
 console.log(isValidUsername);
 // => 'Account name should be longer.'
 ```

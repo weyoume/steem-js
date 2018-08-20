@@ -2,36 +2,36 @@ require('babel-polyfill');
 import assert from 'assert';
 import should from 'should';
 import testPost from './test-post.json';
-import ezira from '../src';
+import ezhelp.js from '../src';
 
-describe('ezira.api:', function () {
+describe('ezhelp.js.api:', function () {
   this.timeout(30 * 1000);
 
   describe('setOptions', () => {
     it('works', () => {
-      ezira.api.setOptions({ url: ezira.config.get('websocket') });
+      ezhelp.js.api.setOptions({ url: ezhelp.js.config.get('websocket') });
     });
   });
 
   describe('getFollowers', () => {
     describe('getting ned\'s followers', () => {
       it('works', async () => {
-        const result = await ezira.api.getFollowersAsync('ned', 0, 'blog', 5);
+        const result = await ezhelp.js.api.getFollowersAsync('ned', 0, 'blog', 5);
         assert(result, 'getFollowersAsync resoved to null?');
         result.should.have.lengthOf(5);
       });
 
       it('the startFollower parameter has an impact on the result', async () => {
         // Get the first 5
-        const result1 = await ezira.api.getFollowersAsync('ned', 0, 'blog', 5)
+        const result1 = await ezhelp.js.api.getFollowersAsync('ned', 0, 'blog', 5)
           result1.should.have.lengthOf(5);
-        const result2 = await ezira.api.getFollowersAsync('ned', result1[result1.length - 1].follower, 'blog', 5)
+        const result2 = await ezhelp.js.api.getFollowersAsync('ned', result1[result1.length - 1].follower, 'blog', 5)
           result2.should.have.lengthOf(5);
         result1.should.not.be.eql(result2);
       });
 
       it('clears listeners', async () => {
-        ezira.api.listeners('message').should.have.lengthOf(0);
+        ezhelp.js.api.listeners('message').should.have.lengthOf(0);
       });
     });
   });
@@ -39,20 +39,20 @@ describe('ezira.api:', function () {
   describe('getContent', () => {
     describe('getting a random post', () => {
       it('works', async () => {
-        const result = await ezira.api.getContentAsync('yamadapc', 'test-1-2-3-4-5-6-7-9');
+        const result = await ezhelp.js.api.getContentAsync('yamadapc', 'test-1-2-3-4-5-6-7-9');
         result.should.have.properties(testPost);
       });
 
       it('clears listeners', async () => {
-        ezira.api.listeners('message').should.have.lengthOf(0);
+        ezhelp.js.api.listeners('message').should.have.lengthOf(0);
       });
     });
   });
 
   describe('streamBlockNumber', () => {
-    it('streams ezira transactions', (done) => {
+    it('streams transactions', (done) => {
       let i = 0;
-      const release = ezira.api.streamBlockNumber((err, block) => {
+      const release = ezhelp.js.api.streamBlockNumber((err, block) => {
         should.exist(block);
         block.should.be.instanceOf(Number);
         i++;
@@ -65,9 +65,9 @@ describe('ezira.api:', function () {
   });
 
   describe('streamBlock', () => {
-    it('streams ezira blocks', (done) => {
+    it('streams blocks', (done) => {
       let i = 0;
-      const release = ezira.api.streamBlock((err, block) => {
+      const release = ezhelp.js.api.streamBlock((err, block) => {
         try {
           should.exist(block);
           block.should.have.properties([
@@ -91,9 +91,9 @@ describe('ezira.api:', function () {
   });
 
   describe('streamTransactions', () => {
-    it('streams ezira transactions', (done) => {
+    it('streams transactions', (done) => {
       let i = 0;
-      const release = ezira.api.streamTransactions((err, transaction) => {
+      const release = ezhelp.js.api.streamTransactions((err, transaction) => {
         try {
           should.exist(transaction);
           transaction.should.have.properties([
@@ -117,9 +117,9 @@ describe('ezira.api:', function () {
   });
 
   describe('streamOperations', () => {
-    it('streams ezira operations', (done) => {
+    it('streams operations', (done) => {
       let i = 0;
-      const release = ezira.api.streamOperations((err, operation) => {
+      const release = ezhelp.js.api.streamOperations((err, operation) => {
         try {
           should.exist(operation);
         } catch (err2) {
@@ -139,10 +139,10 @@ describe('ezira.api:', function () {
 
   describe('useApiOptions', () => {
     it('works ok with the prod instances', async() => {
-      ezira.api.setOptions({ useAppbaseApi: true, url: ezira.config.get('uri') });
+      ezhelp.js.api.setOptions({ useAppbaseApi: true, url: ezhelp.js.config.get('uri') });
 
-      const result = await ezira.api.getContentAsync('yamadapc', 'test-1-2-3-4-5-6-7-9');
-      ezira.api.setOptions({ useAppbaseApi: false, url: ezira.config.get('uri') });
+      const result = await ezhelp.js.api.getContentAsync('yamadapc', 'test-1-2-3-4-5-6-7-9');
+      ezhelp.js.api.setOptions({ useAppbaseApi: false, url: ezhelp.js.config.get('uri') });
 
       result.should.have.properties(testPost);
     });

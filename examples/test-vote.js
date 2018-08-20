@@ -1,9 +1,9 @@
-const ezira = require('../lib');
+const ezhelp.js = require('../lib');
 
 const username = 'guest123';
 const wif = '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg';
 
-ezira
+ezhelp.js
   .broadcast
   .vote(
     wif,

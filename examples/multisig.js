@@ -1,9 +1,9 @@
-const ezira = require('../lib');
+const ezhelp.js = require('../lib');
 
 const privWif1 = '5K2LA2ucS8b1GuFvVgZK6itKNE6fFMbDMX4GDtNHiczJESLGRd8';
 const privWif2 = '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg';
 
-ezira.broadcast.send({
+ezhelp.js.broadcast.send({
   extensions: [],
   operations: [
     ['vote', {

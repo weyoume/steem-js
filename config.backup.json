@@ -2,9 +2,9 @@
   "transport": "https",
   "websocket": "wss://peer.ezira.io:8090",
   "uri": "https://api.ezira.io",
-  "url": "",
+  "url": "https://api.ezira.io",
   "dev_uri": "https://devapi.ezira.io",
   "stage_uri": "https://stageapi.ezira.io",
   "address_prefix": "EZT",
-  "chain_id": "0000000000000000000000000000000000000000000000000000000000000000"
+  "chain_id": "ed8b34c6c348987271fa7128c1f89072ab07b832aa0d7057b165d83d513b461a"
 }

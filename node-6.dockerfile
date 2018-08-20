@@ -1,6 +1,6 @@
 FROM node:6
-ADD ./package.json /ezirajs/package.json
-WORKDIR /ezirajs
+ADD ./package.json /ezhelp.js/package.json
+WORKDIR /ezhelp.js
 RUN npm install
-ADD . /ezirajs
+ADD . /ezhelp.js
 RUN npm test

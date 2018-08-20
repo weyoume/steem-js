@@ -1,7 +1,7 @@
 import api from '../api';
 
-exports = module.exports = eziraBroadcast => {
-  eziraBroadcast.addAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting', weight }, cb) => {
+exports = module.exports = ezhelp.jsBroadcast => {
+  ezhelp.jsBroadcast.addAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting', weight }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -23,20 +23,20 @@ exports = module.exports = eziraBroadcast => {
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
       /** Add authority on user account */
-      eziraBroadcast.accountUpdate(
+      ezhelp.jsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,
         active,
         posting,
-        userAccount.memo_key,
-        userAccount.json_metadata,
+        userAccount.memoKey,
+        userAccount.json,
         cb
       );
     });
   };
 
-  eziraBroadcast.removeAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting' }, cb) => {
+  ezhelp.jsBroadcast.removeAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting' }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -60,20 +60,20 @@ exports = module.exports = eziraBroadcast => {
       const active = role === 'active' ? updatedAuthority : undefined;
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
-      eziraBroadcast.accountUpdate(
+      ezhelp.jsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,
         active,
         posting,
-        userAccount.memo_key,
-        userAccount.json_metadata,
+        userAccount.memoKey,
+        userAccount.json,
         cb
       );
     });
   };
 
-  eziraBroadcast.addKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting', weight }, cb) => {
+  ezhelp.jsBroadcast.addKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting', weight }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -95,20 +95,20 @@ exports = module.exports = eziraBroadcast => {
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
       /** Add authority on user account */
-      eziraBroadcast.accountUpdate(
+      ezhelp.jsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,
         active,
         posting,
-        userAccount.memo_key,
-        userAccount.json_metadata,
+        userAccount.memoKey,
+        userAccount.json,
         cb
       );
     });
   };
 
-  eziraBroadcast.removeKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting' }, cb) => {
+  ezhelp.jsBroadcast.removeKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting' }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -132,14 +132,14 @@ exports = module.exports = eziraBroadcast => {
       const active = role === 'active' ? updatedAuthority : undefined;
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
-      eziraBroadcast.accountUpdate(
+      ezhelp.jsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,
         active,
         posting,
-        userAccount.memo_key,
-        userAccount.json_metadata,
+        userAccount.memoKey,
+        userAccount.json,
         cb
       );
     });

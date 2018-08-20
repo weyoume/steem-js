@@ -1,11 +1,11 @@
 {
-  "name": "ezj",
-  "version": "0.7.111",
-  "description": "Ezira.js the JavaScript API for Ezira blockchain",
+  "name": "ezhelp.js",
+  "version": "0.7.112",
+  "description": "Ezj is the JavaScript API Library for the Ezira blockchain",
   "main": "lib/index.js",
   "scripts": {
     "test": "eslint --quiet src test; mocha -t 40000 --require babel-polyfill --require babel-register",
-    "test-auth": "npm test -- --grep 'ezira.auth'",
+    "test-auth": "npm test -- --grep 'test.ezira.auth'",
     "build": "npm run build-browser && npm run build-node",
     "build-browser": "rm -rf dist && NODE_ENV=production node ./node_modules/webpack/bin/webpack.js && gzip -k -f ./dist/*.js && du -h ./dist/*",
     "build-node": "mkdir -p ./lib && cp -r ./src/* ./lib/ && babel ./src --out-dir ./lib",
@@ -17,22 +17,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eziranetwork/ezjs.git"
+    "url": "git+https://github.com/eziranetwork/ezhelp.js.git"
   },
   "keywords": [
     "eziranetwork",
     "ezira",
     "blockchain",
-    "ezjs"
+    "ezhelp.js"
   ],
   "author": "Fabien (https://github.com/bonustrack)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/eziranetwork/ezjs/issues"
+    "url": "https://github.com/eziranetwork/ezhelp.js/issues"
   },
-  "homepage": "https://github.com/eziranetwork/ezjs#readme",
+  "homepage": "https://github.com/eziranetwork/ezhelp.js#readme",
   "dependencies": {
-    "@steemit/rpc-auth": "^1.1.0",
+    "ezrpc.js": "^1.1.0",
     "bigi": "^1.4.2",
     "bluebird": "^3.4.6",
     "browserify-aes": "^1.0.6",
@@ -71,9 +71,6 @@
     "webpack-visualizer-plugin": "^0.1.5"
   },
   "contributors": [
-    "Fabien (https://github.com/bonustrack)",
-    "James Calfee (https://github.com/jcalfee)",
-    "Nilesh Suthar (https://github.com/nil1511)",
-    "Pedro Tacla Yamada (https://github.com/yamadapc)"
+    "Nikolaj Frey (https://github.com/lopudesigns)"
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "name": "ezjs-webpack-example",
+  "name": "ezhelp.js-webpack-example",
   "scripts": {
     "build": "npm run build-web && npm run build-node",
     "build-web": "webpack",
@@ -10,6 +10,6 @@
     "webpack": "^3.0.0"
   },
   "dependencies": {
-    "ezira": "^0.5.20"
+    "ezhelp.js": "^0.5.20"
   }
 }

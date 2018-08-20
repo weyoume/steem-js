@@ -17,9 +17,9 @@ import {
 } from './transports/http';
 import {
     sign as signRequest
-} from '@steemit/rpc-auth';
+} from 'ezrpc.js';
 
-class Ezira extends EventEmitter {
+class Ezapi extends EventEmitter {
     constructor(options = {}) {
         super(options);
         this._setTransport(options);
@@ -343,6 +343,6 @@ class Ezira extends EventEmitter {
 }
 
 // Export singleton instance
-const ezira = new Ezira(config);
-exports = module.exports = ezira;
-exports.Ezira = Ezira;
+const ezhelp.js = new Ezapi(config);
+exports = module.exports = ezhelp.js;
+exports.Ezapi = Ezapi;

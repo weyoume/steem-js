@@ -1,3 +1,3 @@
-git add . ;
-git commit -am "ready" -n ;
-git push origin dev ;
+git add . 
+git commit -m "ready" 
+git push origin dev 

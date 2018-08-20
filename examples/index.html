@@ -6,15 +6,15 @@
 </head>
 <body>
 
-<script src="../dist/ezira.min.js"></script>
+<script src="../dist/ezhelp.js.min.js"></script>
 <script>
-ezira.api.getConfig(function(err, response){
+ezhelp.js.api.getConfig(function(err, response){
   console.log(err, response);
 });
-ezira.api.getAccounts(['ned', 'dan'], function(err, response){
+ezhelp.js.api.getAccounts(['ned', 'dan'], function(err, response){
   console.log(err, response);
 });
-ezira.api.getAccountCount(function(err, response){
+ezhelp.js.api.getAccountCount(function(err, response){
   console.log(err, response);
 });
 </script>
