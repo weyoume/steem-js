@@ -1,38 +1,38 @@
 import Promise from 'bluebird';
 import should from 'should';
-import ezhelp.js from '../src';
+import wehelpjs from '../src';
 
-const username = process.env.EZNODE_USERNAME || 'guest123';
-const password = process.env.EZNODE_PASSWORD;
+const username = process.env.NODE_USERNAME || 'guest123';
+const password = process.env.NODE_PASSWORD;
 const postingWif = password
-  ? ezhelp.js.auth.toWif(username, password, 'posting')
+  ? wehelpjs.auth.toWif(username, password, 'posting')
   : '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg';
 
-describe('ezhelp.js.broadcast:', () => {
+describe('wehelpjs.broadcast:', () => {
   it('exists', () => {
-    should.exist(ezhelp.js.broadcast);
+    should.exist(wehelpjs.broadcast);
   });
 
   it('has generated methods', () => {
-    should.exist(ezhelp.js.broadcast.vote);
-    should.exist(ezhelp.js.broadcast.voteWith);
-    should.exist(ezhelp.js.broadcast.comment);
-    should.exist(ezhelp.js.broadcast.transfer);
+    should.exist(wehelpjs.broadcast.vote);
+    should.exist(wehelpjs.broadcast.voteWith);
+    should.exist(wehelpjs.broadcast.comment);
+    should.exist(wehelpjs.broadcast.transfer);
   });
 
   it('has backing methods', () => {
-    should.exist(ezhelp.js.broadcast.send);
+    should.exist(wehelpjs.broadcast.send);
   });
 
   it('has promise methods', () => {
-    should.exist(ezhelp.js.broadcast.sendAsync);
-    should.exist(ezhelp.js.broadcast.voteAsync);
-    should.exist(ezhelp.js.broadcast.transferAsync);
+    should.exist(wehelpjs.broadcast.sendAsync);
+    should.exist(wehelpjs.broadcast.voteAsync);
+    should.exist(wehelpjs.broadcast.transferAsync);
   });
 
   describe('patching transaction with default global properties', () => {
     it('works', async () => {
-      const tx = await ezhelp.js.broadcast._prepareTransaction({
+      const tx = await wehelpjs.broadcast._prepareTransaction({
         extensions: [],
         operations: [['vote', {
           voter: 'yamadapc',
@@ -53,7 +53,7 @@ describe('ezhelp.js.broadcast:', () => {
 
   describe('downvoting', () => {
     it('works', async () => {
-      const tx = await ezhelp.js.broadcast.voteAsync(
+      const tx = await wehelpjs.broadcast.voteAsync(
         postingWif,
         username,
         'yamadapc',
@@ -77,7 +77,7 @@ describe('ezhelp.js.broadcast:', () => {
     });
 
     it('works', async () => {
-      const tx = await ezhelp.js.broadcast.voteAsync(
+      const tx = await wehelpjs.broadcast.voteAsync(
         postingWif,
         username,
         'yamadapc',
@@ -96,7 +96,7 @@ describe('ezhelp.js.broadcast:', () => {
     });
 
     it('works with callbacks', (done) => {
-      ezhelp.js.broadcast.vote(
+      wehelpjs.broadcast.vote(
         postingWif,
         username,
         'yamadapc',
@@ -124,7 +124,7 @@ describe('ezhelp.js.broadcast:', () => {
     });
 
     it('works', async () => {
-      const tx = await ezhelp.js.broadcast.customJsonAsync(
+      const tx = await wehelpjs.broadcast.customJsonAsync(
         postingWif,
         [],
         [username],
@@ -152,8 +152,8 @@ describe('ezhelp.js.broadcast:', () => {
   
   describe('writeOperations', () => {
     it('receives a properly formatted error response', () => {
-      const wif = ezhelp.js.auth.toWif('username', 'password', 'posting');
-      return ezhelp.js.broadcast.voteAsync(wif, 'voter', 'author', 'permlink', 0).
+      const wif = wehelpjs.auth.toWif('username', 'password', 'posting');
+      return wehelpjs.broadcast.voteAsync(wif, 'voter', 'author', 'permlink', 0).
       then(() => {
         throw new Error('writeOperation should have failed but it didn\'t');
       }, (e) => {

@@ -2,7 +2,7 @@ var assert = require('assert');
 var types = require('../src/auth/serializer/src/types');
 var ops = require('../src/auth/serializer/src/operations');
 
-describe("ezhelp.js.auth: operation test", ()=> {
+describe("wehelpjs.auth: operation test", ()=> {
 
     it("templates", ()=> {
         for(let op in ops) {
@@ -14,7 +14,7 @@ describe("ezhelp.js.auth: operation test", ()=> {
     })
 
     it("accountCreate", ()=> {
-        let tx = {"ref_block_num": 19297,"ref_block_prefix": 1608085982,"expiration": "2016-03-23T22:41:21","operations": [ ["accountCreate",{"fee": "0.000 ECO","creator": "initminer","newAccountName": "scott","owner": {"weight_threshold": 1,"account_auths": [],"key_auths": [ ["EZT7DTS62msowgpAZJBNRMEZTUt5bfRA4hc9j5wjwU4vKhi3KFkKb",1 ]]},"active": {"weight_threshold": 1,"account_auths": [],"key_auths": [ ["EZT8k1f8fvHxLrCTqMdRUJcK2rCE3y7SQBb8PremyadWvVWMeedZy",1 ]]},"posting": {"weight_threshold": 1,"account_auths": [],"key_auths": [ ["EZT6DgpKJqoVGg7o6J1jdiP45xxbgoUg5VGzs96YBxX42NZu2bZea",1 ]]},"memoKey": "EZT6ppNVEFmvBW4jEkzxXnGKuKuwYjMUrhz2WX1kHeGSchGdWJEDQ","json": ""} ]],"extensions": [], "signatures": []}
+        let tx = {"ref_block_num": 19297,"ref_block_prefix": 1608085982,"expiration": "2016-03-23T22:41:21","operations": [ ["accountCreate",{"fee": "0.000 ECO","creator": "initminer","newAccountName": "scott","owner": {"weight_threshold": 1,"account_auths": [],"key_auths": [ ["TWE7DTS62msowgpAZJBNRMTWEUt5bfRA4hc9j5wjwU4vKhi3KFkKb",1 ]]},"active": {"weight_threshold": 1,"account_auths": [],"key_auths": [ ["TWE8k1f8fvHxLrCTqMdRUJcK2rCE3y7SQBb8PremyadWvVWMeedZy",1 ]]},"posting": {"weight_threshold": 1,"account_auths": [],"key_auths": [ ["TWE6DgpKJqoVGg7o6J1jdiP45xxbgoUg5VGzs96YBxX42NZu2bZea",1 ]]},"memoKey": "TWE6ppNVEFmvBW4jEkzxXnGKuKuwYjMUrhz2WX1kHeGSchGdWJEDQ","json": ""} ]],"extensions": [], "signatures": []}
 
         let tx_hex = "614bde71d95f911bf3560109000000000000000003535445454d000009696e69746d696e65720573636f74740100000000010332757668fa45c2bc21447a2ff1dc2bbed9d9dda1616fd7b700255bd28e9d674a010001000000000103fb8900a262d51b908846be54fcf04b3a80d12ee749b9446f976b58b220ba4eed010001000000000102af4963d0f034043f4b4b0c99220e6a4b5d8b9cc71e5cd7d110f7602f3a0a11d1010002ff0de11ef55b998daf88047f1a00a60ed5dffb0c23c3279f8bd42a733845c5da000000"
 

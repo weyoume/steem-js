@@ -2,26 +2,26 @@ import Promise from 'bluebird';
 import newDebug from 'debug';
 
 import broadcastHelpers from './helpers';
-import ezformatterFactory from '../ezformatter';
+import formatterFactory from '../formatter';
 import operations from './operations';
-import ezhelp.js from '../api';
-import ezauth from '../auth';
+import api from '../api';
+import auth from '../auth';
 import { camelCase } from '../utils';
 
-const debug = newDebug('ezhelp.js:broadcast');
+const debug = newDebug('api:broadcast');
 const noop = function() {}
-const formatter = ezformatterFactory(ezhelp.js);
+const formatter = formatterFactory(api);
 
-const ezhelp.jsBroadcast = {};
+const apiBroadcast = {};
 
 // Base transaction logic -----------------------------------------------------
 
 /**
- * Sign and broadcast transactions on the Ezira Network
+ * Sign and broadcast transactions on a Protocol Specific Network
  */
 
-ezhelp.jsBroadcast.send = function ezhelp.jsBroadcast$send(tx, privKeys, callback) {
-  const resultP = ezhelp.jsBroadcast._prepareTransaction(tx)
+apiBroadcast.send = function apiBroadcast$send(tx, privKeys, callback) {
+  const resultP = apiBroadcast._prepareTransaction(tx)
     .then((transaction) => {
       debug(
         'Signing transaction (transaction, transaction.operations)',
@@ -29,7 +29,7 @@ ezhelp.jsBroadcast.send = function ezhelp.jsBroadcast$send(tx, privKeys, callbac
       );
       return Promise.join(
         transaction,
-        ezauth.signTransaction(transaction, privKeys)
+        auth.signTransaction(transaction, privKeys)
       );
     })
     .spread((transaction, signedTransaction) => {
@@ -37,7 +37,7 @@ ezhelp.jsBroadcast.send = function ezhelp.jsBroadcast$send(tx, privKeys, callbac
         'Broadcasting transaction (transaction, transaction.operations)',
         transaction, transaction.operations
       );
-      return ezhelp.js.broadcastTransactionSynchronousAsync(
+      return api.broadcastTransactionSynchronousAsync(
         signedTransaction
       ).then((result) => {
         return Object.assign({}, result, signedTransaction);
@@ -47,14 +47,14 @@ ezhelp.jsBroadcast.send = function ezhelp.jsBroadcast$send(tx, privKeys, callbac
   resultP.nodeify(callback || noop);
 };
 
-ezhelp.jsBroadcast._prepareTransaction = function ezhelp.jsBroadcast$_prepareTransaction(tx) {
-  const propertiesP = ezhelp.js.getDynamicGlobalPropertiesAsync();
+apiBroadcast._prepareTransaction = function apiBroadcast$_prepareTransaction(tx) {
+  const propertiesP = api.getDynamicGlobalPropertiesAsync();
   return propertiesP
     .then((properties) => {
       // Set defaults on the transaction
       const chainDate = new Date(properties.time + 'Z');
       const refBlockNum = (properties.last_irreversible_block_num - 1) & 0xFFFF;
-      return ezhelp.js.getBlockAsync(properties.last_irreversible_block_num).then((block) => {
+      return api.getBlockAsync(properties.last_irreversible_block_num).then((block) => {
         const headBlockId = block.previous;
         return Object.assign({
           ref_block_num: refBlockNum,
@@ -79,14 +79,14 @@ operations.forEach((operation) => {
     operationParams.indexOf('parent_permlink') !== -1 &&
     operationParams.indexOf('parent_permlink') !== -1;
 
-  ezhelp.jsBroadcast[`${operationName}With`] =
-    function ezhelp.jsBroadcast$specializedSendWith(wif, options, callback) {
+  apiBroadcast[`${operationName}With`] =
+    function apiBroadcast$specializedSendWith(wif, options, callback) {
       debug(`Sending operation "${operationName}" with`, {options, callback});
       const keys = {};
       if (operation.roles && operation.roles.length) {
         keys[operation.roles[0]] = wif; // TODO - Automatically pick a role? Send all?
       }
-      return ezhelp.jsBroadcast.send({
+      return apiBroadcast.send({
         extensions: [],
         operations: [[operation.operation, Object.assign(
           {},
@@ -101,21 +101,21 @@ operations.forEach((operation) => {
       }, keys, callback);
     };
 
-  ezhelp.jsBroadcast[operationName] =
-    function ezhelp.jsBroadcast$specializedSend(wif, ...args) {
+  apiBroadcast[operationName] =
+    function apiBroadcast$specializedSend(wif, ...args) {
       debug(`Parsing operation "${operationName}" with`, {args});
       const options = operationParams.reduce((memo, param, i) => {
         memo[param] = args[i]; // eslint-disable-line no-param-reassign
         return memo;
       }, {});
       const callback = args[operationParams.length];
-      return ezhelp.jsBroadcast[`${operationName}With`](wif, options, callback);
+      return apiBroadcast[`${operationName}With`](wif, options, callback);
     };
 });
 
 const toString = obj => typeof obj === 'object' ? JSON.stringify(obj) : obj;
-broadcastHelpers(ezhelp.jsBroadcast);
+broadcastHelpers(apiBroadcast);
 
-Promise.promisifyAll(ezhelp.jsBroadcast);
+Promise.promisifyAll(apiBroadcast);
 
-exports = module.exports = ezhelp.jsBroadcast;
+exports = module.exports = apiBroadcast;

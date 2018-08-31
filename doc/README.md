@@ -25,40 +25,40 @@
 
 # Install
 ```
-$ npm install --save ezhelp.js
+$ npm install --save wehelpjs
 ```
 
 # Browser 
 ```html 
-<script src="./ezhelp.min.js"></script>
+<script src="./wehelpjs.min.js"></script>
 <script>
-ezhelp.api.getAccounts(['ned', 'dan'], function(err, response){
+wehelpjs.api.getAccounts(['ned', 'dan'], function(err, response){
     console.log(err, response);
 });
 </script>
 ```
 
 ## Config
-Default config should work with ezhelp. however you can change it to work with golos
+Default config should work with wehelpjs. however you can change it to work with golos
 as 
 ```js
-ezhelp.api.setOptions({ url: 'wss://ws.golos.io' }); // assuming websocket is work at ws.golos.io
-ezhelp.config.set('address_prefix','GLS');
-ezhelp.config.set('chain_id','782a3039b478c839e4cb0c941ff4eaeb7df40bdd68bd441afd444b9da763de12');
+wehelpjs.api.setOptions({ url: 'wss://ws.golos.io' }); // assuming websocket is work at ws.golos.io
+wehelpjs.config.set('address_prefix','GLS');
+wehelpjs.config.set('chain_id','782a3039b478c839e4cb0c941ff4eaeb7df40bdd68bd441afd444b9da763de12');
 ```
 ### set
 ```
-ezhelp.config.set('address_prefix','EZT');
+wehelpjs.config.set('address_prefix','TWE');
 ```
 ### get
 ```
-ezhelp.config.get('chain_id');
+wehelpjs.config.get('chain_id');
 ```
 
 ## JSON-RPC
 Here is how to activate JSON-RPC transport:
 ```js
-ezhelp.api.setOptions({ url: 'https://api.ezira.io' });
+wehelpjs.api.setOptions({ url: 'https://api.ezira.io' });
 ```
 
 # API
@@ -67,25 +67,25 @@ ezhelp.api.setOptions({ url: 'https://api.ezira.io' });
 
 ### Set Subscribe Callback
 ```
-ezhelp.api.setSubscribeCallback(callback, clearFilter, function(err, result) {
+wehelpjs.api.setSubscribeCallback(callback, clearFilter, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Set Pending Transaction Callback
 ```
-ezhelp.api.setPendingTransactionCallback(cb, function(err, result) {
+wehelpjs.api.setPendingTransactionCallback(cb, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Set Block Applied Callback
 ```
-ezhelp.api.setBlockAppliedCallback(cb, function(err, result) {
+wehelpjs.api.setBlockAppliedCallback(cb, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Cancel All Subscriptions
 ```
-ezhelp.api.cancelAllSubscriptions(function(err, result) {
+wehelpjs.api.cancelAllSubscriptions(function(err, result) {
   console.log(err, result);
 });
 ```
@@ -94,73 +94,73 @@ ezhelp.api.cancelAllSubscriptions(function(err, result) {
 
 ### Get Trending Tags
 ```
-ezhelp.api.getTrendingTags(afterTag, limit, function(err, result) {
+wehelpjs.api.getTrendingTags(afterTag, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Trending
 ```
-ezhelp.api.getDiscussionsByTrending(query, function(err, result) {
+wehelpjs.api.getDiscussionsByTrending(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Created
 ```
-ezhelp.api.getDiscussionsByCreated(query, function(err, result) {
+wehelpjs.api.getDiscussionsByCreated(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Active
 ```
-ezhelp.api.getDiscussionsByActive(query, function(err, result) {
+wehelpjs.api.getDiscussionsByActive(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Cashout
 ```
-ezhelp.api.getDiscussionsByCashout(query, function(err, result) {
+wehelpjs.api.getDiscussionsByCashout(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Payout
 ```
-ezhelp.api.getDiscussionsByPayout(query, function(err, result) {
+wehelpjs.api.getDiscussionsByPayout(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Votes
 ```
-ezhelp.api.getDiscussionsByVotes(query, function(err, result) {
+wehelpjs.api.getDiscussionsByVotes(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Children
 ```
-ezhelp.api.getDiscussionsByChildren(query, function(err, result) {
+wehelpjs.api.getDiscussionsByChildren(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Hot
 ```
-ezhelp.api.getDiscussionsByHot(query, function(err, result) {
+wehelpjs.api.getDiscussionsByHot(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Feed
 ```
-ezhelp.api.getDiscussionsByFeed(query, function(err, result) {
+wehelpjs.api.getDiscussionsByFeed(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Blog
 ```
-ezhelp.api.getDiscussionsByBlog(query, function(err, result) {
+wehelpjs.api.getDiscussionsByBlog(query, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Comments
 ```
-ezhelp.api.getDiscussionsByComments(query, function(err, result) {
+wehelpjs.api.getDiscussionsByComments(query, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -169,43 +169,43 @@ ezhelp.api.getDiscussionsByComments(query, function(err, result) {
 
 ### Get Block Header
 ```
-ezhelp.api.getBlockHeader(blockNum, function(err, result) {
+wehelpjs.api.getBlockHeader(blockNum, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Block
 ```
-ezhelp.api.getBlock(blockNum, function(err, result) {
+wehelpjs.api.getBlock(blockNum, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get State
 ```
-ezhelp.api.getState(path, function(err, result) {
+wehelpjs.api.getState(path, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Trending Categories
 ```
-ezhelp.api.getTrendingCategories(after, limit, function(err, result) {
+wehelpjs.api.getTrendingCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Best Categories
 ```
-ezhelp.api.getBestCategories(after, limit, function(err, result) {
+wehelpjs.api.getBestCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Active Categories
 ```
-ezhelp.api.getActiveCategories(after, limit, function(err, result) {
+wehelpjs.api.getActiveCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Recent Categories
 ```
-ezhelp.api.getRecentCategories(after, limit, function(err, result) {
+wehelpjs.api.getRecentCategories(after, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -214,55 +214,55 @@ ezhelp.api.getRecentCategories(after, limit, function(err, result) {
 
 ### Get Config
 ```
-ezhelp.api.getConfig(function(err, result) {
+wehelpjs.api.getConfig(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Dynamic Global Properties
 ```
-ezhelp.api.getDynamicGlobalProperties(function(err, result) {
+wehelpjs.api.getDynamicGlobalProperties(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Chain Properties
 ```
-ezhelp.api.getChainProperties(function(err, result) {
+wehelpjs.api.getChainProperties(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Feed History
 ```
-ezhelp.api.getFeedHistory(function(err, result) {
+wehelpjs.api.getFeedHistory(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Current Median History Price
 ```
-ezhelp.api.getCurrentMedianHistoryPrice(function(err, result) {
+wehelpjs.api.getCurrentMedianHistoryPrice(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Hardfork Version
 ```
-ezhelp.api.getHardforkVersion(function(err, result) {
+wehelpjs.api.getHardforkVersion(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Next Scheduled Hardfork
 ```
-ezhelp.api.getNextScheduledHardfork(function(err, result) {
+wehelpjs.api.getNextScheduledHardfork(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Reward Fund
 ```
-ezhelp.api.getRewardFund(name, function(err, result) {
+wehelpjs.api.getRewardFund(name, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get eScore Delegations
 ```
-ezhelp.api.getESCORdelegations(account, from, limit, function(err, result) {
+wehelpjs.api.getESCORdelegations(account, from, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -271,7 +271,7 @@ ezhelp.api.getESCORdelegations(account, from, limit, function(err, result) {
 
 ### Get Key References
 ```
-ezhelp.api.getKeyReferences(key, function(err, result) {
+wehelpjs.api.getKeyReferences(key, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -280,55 +280,55 @@ ezhelp.api.getKeyReferences(key, function(err, result) {
 
 ### Get Accounts
 ```
-ezhelp.api.getAccounts(names, function(err, result) {
+wehelpjs.api.getAccounts(names, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account References
 ```
-ezhelp.api.getAccountReferences(accountId, function(err, result) {
+wehelpjs.api.getAccountReferences(accountId, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Lookup Account Names
 ```
-ezhelp.api.lookupAccountNames(accountNames, function(err, result) {
+wehelpjs.api.lookupAccountNames(accountNames, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Lookup Accounts
 ```
-ezhelp.api.lookupAccounts(lowerBoundName, limit, function(err, result) {
+wehelpjs.api.lookupAccounts(lowerBoundName, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account Count
 ```
-ezhelp.api.getAccountCount(function(err, result) {
+wehelpjs.api.getAccountCount(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Conversion Requests
 ```
-ezhelp.api.getConversionRequests(accountName, function(err, result) {
+wehelpjs.api.getConversionRequests(accountName, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account History
 ```
-ezhelp.api.getAccountHistory(account, from, limit, function(err, result) {
+wehelpjs.api.getAccountHistory(account, from, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Owner History
 ```
-ezhelp.api.getOwnerHistory(account, function(err, result) {
+wehelpjs.api.getOwnerHistory(account, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Recovery Request
 ```
-ezhelp.api.getRecoveryRequest(account, function(err, result) {
+wehelpjs.api.getRecoveryRequest(account, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -337,19 +337,19 @@ ezhelp.api.getRecoveryRequest(account, function(err, result) {
 
 ### Get Order Book
 ```
-ezhelp.api.getOrderBook(limit, function(err, result) {
+wehelpjs.api.getOrderBook(limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Open Orders
 ```
-ezhelp.api.getOpenOrders(owner, function(err, result) {
+wehelpjs.api.getOpenOrders(owner, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Liquidity Queue
 ```
-ezhelp.api.getLiquidityQueue(startAccount, limit, function(err, result) {
+wehelpjs.api.getLiquidityQueue(startAccount, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -358,37 +358,37 @@ ezhelp.api.getLiquidityQueue(startAccount, limit, function(err, result) {
 
 ### Get Transaction Hex
 ```
-ezhelp.api.getTransactionHex(trx, function(err, result) {
+wehelpjs.api.getTransactionHex(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Transaction
 ```
-ezhelp.api.getTransaction(trxId, function(err, result) {
+wehelpjs.api.getTransaction(trxId, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Required Signatures
 ```
-ezhelp.api.getRequiredSignatures(trx, availableKeys, function(err, result) {
+wehelpjs.api.getRequiredSignatures(trx, availableKeys, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Potential Signatures
 ```
-ezhelp.api.getPotentialSignatures(trx, function(err, result) {
+wehelpjs.api.getPotentialSignatures(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Verify Authority
 ```
-ezhelp.api.verifyAuthority(trx, function(err, result) {
+wehelpjs.api.verifyAuthority(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Verify Account Authority
 ```
-ezhelp.api.verifyAccountAuthority(nameOrId, signers, function(err, result) {
+wehelpjs.api.verifyAccountAuthority(nameOrId, signers, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -397,13 +397,13 @@ ezhelp.api.verifyAccountAuthority(nameOrId, signers, function(err, result) {
 
 ### Get Active Votes
 ```
-ezhelp.api.getActiveVotes(author, permlink, function(err, result) {
+wehelpjs.api.getActiveVotes(author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Account Votes
 ```
-ezhelp.api.getAccountVotes(voter, function(err, result) {
+wehelpjs.api.getAccountVotes(voter, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -413,25 +413,25 @@ ezhelp.api.getAccountVotes(voter, function(err, result) {
 
 ### Get Content
 ```
-ezhelp.api.getContent(author, permlink, function(err, result) {
+wehelpjs.api.getContent(author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Content Replies
 ```
-ezhelp.api.getContentReplies(author, permlink, function(err, result) {
+wehelpjs.api.getContentReplies(author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Discussions By Author Before Date
 ```
-ezhelp.api.getDiscussionsByAuthorBeforeDate(author, startPermlink, beforeDate, limit, function(err, result) {
+wehelpjs.api.getDiscussionsByAuthorBeforeDate(author, startPermlink, beforeDate, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Replies By Last Update
 ```
-ezhelp.api.getRepliesByLastUpdate(startAuthor, startPermlink, limit, function(err, result) {
+wehelpjs.api.getRepliesByLastUpdate(startAuthor, startPermlink, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -441,43 +441,43 @@ ezhelp.api.getRepliesByLastUpdate(startAuthor, startPermlink, limit, function(er
 
 ### Get Witnesses
 ```
-ezhelp.api.getWitnesses(witnessIds, function(err, result) {
+wehelpjs.api.getWitnesses(witnessIds, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Witness By Account
 ```
-ezhelp.api.getWitnessByAccount(accountName, function(err, result) {
+wehelpjs.api.getWitnessByAccount(accountName, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Witnesses By Vote
 ```
-ezhelp.api.getWitnessesByVote(from, limit, function(err, result) {
+wehelpjs.api.getWitnessesByVote(from, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Lookup Witness Accounts
 ```
-ezhelp.api.lookupWitnessAccounts(lowerBoundName, limit, function(err, result) {
+wehelpjs.api.lookupWitnessAccounts(lowerBoundName, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Witness Count
 ```
-ezhelp.api.getWitnessCount(function(err, result) {
+wehelpjs.api.getWitnessCount(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Active Witnesses
 ```
-ezhelp.api.getActiveWitnesses(function(err, result) {
+wehelpjs.api.getActiveWitnesses(function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Miner Queue
 ```
-ezhelp.api.getMinerQueue(function(err, result) {
+wehelpjs.api.getMinerQueue(function(err, result) {
   console.log(err, result);
 });
 ```
@@ -489,14 +489,14 @@ ezhelp.api.getMinerQueue(function(err, result) {
 /!\ It's **not safe** to use this method with your username and password. This method always return `true` and is only used in intern with empty values to enable broadcast.
 
 ```
-ezhelp.api.login('', '', function(err, result) {
+wehelpjs.api.login('', '', function(err, result) {
   console.log(err, result);
 });
 ```
 
 ### Get Api By Name
 ```
-ezhelp.api.getApiByName(apiName, function(err, result) {
+wehelpjs.api.getApiByName(apiName, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -505,19 +505,19 @@ ezhelp.api.getApiByName(apiName, function(err, result) {
 
 ### Get Followers
 ```
-ezhelp.api.getFollowers(following, startFollower, followType, limit, function(err, result) {
+wehelpjs.api.getFollowers(following, startFollower, followType, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Following
 ```
-ezhelp.api.getFollowing(follower, startFollowing, followType, limit, function(err, result) {
+wehelpjs.api.getFollowing(follower, startFollowing, followType, limit, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Get Follow Count
 ```
-ezhelp.api.getFollowCount(account, function(err, result) {
+wehelpjs.api.getFollowCount(account, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -526,13 +526,13 @@ ezhelp.api.getFollowCount(account, function(err, result) {
 
 ### Broadcast Transaction Synchronous
 ```
-ezhelp.api.broadcastTransactionSynchronous(trx, function(err, result) {
+wehelpjs.api.broadcastTransactionSynchronous(trx, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Broadcast Block
 ```
-ezhelp.api.broadcastBlock(b, function(err, result) {
+wehelpjs.api.broadcastBlock(b, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -541,301 +541,301 @@ ezhelp.api.broadcastBlock(b, function(err, result) {
 
 ### Account Create
 ```
-ezhelp.broadcast.accountCreate(wif, fee, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
+wehelpjs.broadcast.accountCreate(wif, fee, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Create With Delegation
 ```
-ezhelp.broadcast.accountCreateWithDelegation(wif, fee, delegation, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, extensions, function(err, result) {
+wehelpjs.broadcast.accountCreateWithDelegation(wif, fee, delegation, creator, newAccountName, owner, active, posting, memoKey, jsonMetadata, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Delegate E Score
 ```
-ezhelp.broadcast.delegateESCOR(wif, delegator, delegatee, ESCOR, function(err, result) {
+wehelpjs.broadcast.delegateESCOR(wif, delegator, delegatee, ESCOR, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Update
 ```
-ezhelp.broadcast.accountUpdate(wif, account, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
+wehelpjs.broadcast.accountUpdate(wif, account, owner, active, posting, memoKey, jsonMetadata, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Witness Proxy
 ```
-ezhelp.broadcast.accountWitnessProxy(wif, account, proxy, function(err, result) {
+wehelpjs.broadcast.accountWitnessProxy(wif, account, proxy, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Account Witness Vote
 ```
-ezhelp.broadcast.accountWitnessVote(wif, account, witness, approve, function(err, result) {
+wehelpjs.broadcast.accountWitnessVote(wif, account, witness, approve, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Challenge Authority
 ```
-ezhelp.broadcast.challengeAuthority(wif, challenger, challenged, requireOwner, function(err, result) {
+wehelpjs.broadcast.challengeAuthority(wif, challenger, challenged, requireOwner, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Change Recovery Account
 ```
-ezhelp.broadcast.changeRecoveryAccount(wif, accountToRecover, newRecoveryAccount, extensions, function(err, result) {
+wehelpjs.broadcast.changeRecoveryAccount(wif, accountToRecover, newRecoveryAccount, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment
 ```
-ezhelp.broadcast.comment(wif, parentAuthor, parentPermlink, author, permlink, title, body, jsonMetadata, function(err, result) {
+wehelpjs.broadcast.comment(wif, parentAuthor, parentPermlink, author, permlink, title, body, jsonMetadata, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Options
 ```
-ezhelp.broadcast.commentOptions(wif, author, permlink, maxAcceptedPayout, percenteUSD, allowVotes, allowCurationRewards, extensions, function(err, result) {
+wehelpjs.broadcast.commentOptions(wif, author, permlink, maxAcceptedPayout, percenteUSD, allowVotes, allowCurationRewards, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Payout
 ```
-ezhelp.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
+wehelpjs.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Reward
 ```
-ezhelp.broadcast.commentReward(wif, author, permlink, eUSDpayout, ESCORpayout, function(err, result) {
+wehelpjs.broadcast.commentReward(wif, author, permlink, eUSDpayout, ESCORpayout, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Convert
 ```
-ezhelp.broadcast.convert(wif, owner, requestid, amount, function(err, result) {
+wehelpjs.broadcast.convert(wif, owner, requestid, amount, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Curate Reward
 ```
-ezhelp.broadcast.curateReward(wif, curator, reward, commentAuthor, commentPermlink, function(err, result) {
+wehelpjs.broadcast.curateReward(wif, curator, reward, commentAuthor, commentPermlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Custom
 ```
-ezhelp.broadcast.custom(wif, requiredAuths, id, data, function(err, result) {
+wehelpjs.broadcast.custom(wif, requiredAuths, id, data, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Custom Binary
 ```
-ezhelp.broadcast.customBinary(wif, id, data, function(err, result) {
+wehelpjs.broadcast.customBinary(wif, id, data, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Custom Json
 ```
-ezhelp.broadcast.customJson(wif, requiredAuths, requiredPostingAuths, id, json, function(err, result) {
+wehelpjs.broadcast.customJson(wif, requiredAuths, requiredPostingAuths, id, json, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Delete Comment
 ```
-ezhelp.broadcast.deleteComment(wif, author, permlink, function(err, result) {
+wehelpjs.broadcast.deleteComment(wif, author, permlink, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Dispute
 ```
-ezhelp.broadcast.escrowDispute(wif, from, to, agent, who, escrowId, function(err, result) {
+wehelpjs.broadcast.escrowDispute(wif, from, to, agent, who, escrowId, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Release
 ```
-ezhelp.broadcast.escrowRelease(wif, from, to, agent, who, receiver, escrowId, eUSDAmount, ECOAmount, function(err, result) {
+wehelpjs.broadcast.escrowRelease(wif, from, to, agent, who, receiver, escrowId, eUSDAmount, ECOAmount, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Transfer
 ```
-ezhelp.broadcast.escrowTransfer(wif, from, to, agent, escrowId, eUSDAmount, ECOAmount, fee, ratificationDeadline, escrowExpiration, jsonMeta, function(err, result) {
+wehelpjs.broadcast.escrowTransfer(wif, from, to, agent, escrowId, eUSDAmount, ECOAmount, fee, ratificationDeadline, escrowExpiration, jsonMeta, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Feed Publish
 ```
-ezhelp.broadcast.feedPublish(wif, publisher, exchangeRate, function(err, result) {
+wehelpjs.broadcast.feedPublish(wif, publisher, exchangeRate, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Pow2
 ```
-ezhelp.broadcast.pow2(wif, work, newOwnerKey, props, function(err, result) {
+wehelpjs.broadcast.pow2(wif, work, newOwnerKey, props, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill Convert Request
 ```
-ezhelp.broadcast.fillConvertRequest(wif, owner, requestid, amountIn, amountOut, function(err, result) {
+wehelpjs.broadcast.fillConvertRequest(wif, owner, requestid, amountIn, amountOut, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill Order
 ```
-ezhelp.broadcast.fillOrder(wif, currentOwner, currentOrderid, currentPays, openOwner, openOrderid, openPays, function(err, result) {
+wehelpjs.broadcast.fillOrder(wif, currentOwner, currentOrderid, currentPays, openOwner, openOrderid, openPays, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill eScore Withdraw With ECO
 ```
-ezhelp.broadcast.fillESCORWithdrawWithECO(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
+wehelpjs.broadcast.fillESCORWithdrawWithECO(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Interest
 ```
-ezhelp.broadcast.interest(wif, owner, interest, function(err, result) {
+wehelpjs.broadcast.interest(wif, owner, interest, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Limit Order Cancel
 ```
-ezhelp.broadcast.limitOrderCancel(wif, owner, orderid, function(err, result) {
+wehelpjs.broadcast.limitOrderCancel(wif, owner, orderid, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Limit Order Create
 ```
-ezhelp.broadcast.limitOrderCreate(wif, owner, orderid, amountToSell, minToReceive, fillOrKill, expiration, function(err, result) {
+wehelpjs.broadcast.limitOrderCreate(wif, owner, orderid, amountToSell, minToReceive, fillOrKill, expiration, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Limit Order Create2
 ```
-ezhelp.broadcast.limitOrderCreate2(wif, owner, orderid, amountToSell, exchangeRate, fillOrKill, expiration, function(err, result) {
+wehelpjs.broadcast.limitOrderCreate2(wif, owner, orderid, amountToSell, exchangeRate, fillOrKill, expiration, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Liquidity Reward
 ```
-ezhelp.broadcast.liquidityReward(wif, owner, payout, function(err, result) {
+wehelpjs.broadcast.liquidityReward(wif, owner, payout, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Pow
 ```
-ezhelp.broadcast.pow(wif, worker, input, signature, work, function(err, result) {
+wehelpjs.broadcast.pow(wif, worker, input, signature, work, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Prove Authority
 ```
-ezhelp.broadcast.proveAuthority(wif, challenged, requireOwner, function(err, result) {
+wehelpjs.broadcast.proveAuthority(wif, challenged, requireOwner, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Recover Account
 ```
-ezhelp.broadcast.recoverAccount(wif, accountToRecover, newOwnerAuthority, recentOwnerAuthority, extensions, function(err, result) {
+wehelpjs.broadcast.recoverAccount(wif, accountToRecover, newOwnerAuthority, recentOwnerAuthority, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Report Over Production
 ```
-ezhelp.broadcast.reportOverProduction(wif, reporter, firstBlock, secondBlock, function(err, result) {
+wehelpjs.broadcast.reportOverProduction(wif, reporter, firstBlock, secondBlock, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Request Account Recovery
 ```
-ezhelp.broadcast.requestAccountRecovery(wif, recoveryAccount, accountToRecover, newOwnerAuthority, extensions, function(err, result) {
+wehelpjs.broadcast.requestAccountRecovery(wif, recoveryAccount, accountToRecover, newOwnerAuthority, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Approve
 ```
-ezhelp.broadcast.escrowApprove(wif, from, to, agent, who, escrowId, approve, function(err, result) {
+wehelpjs.broadcast.escrowApprove(wif, from, to, agent, who, escrowId, approve, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Set Withdraw eScore as ECO Route
 ```
-ezhelp.broadcast.setWithdrawESCORasECOroute(wif, fromAccount, toAccount, percent, autoESCOR, function(err, result) {
+wehelpjs.broadcast.setWithdrawESCORasECOroute(wif, fromAccount, toAccount, percent, autoESCOR, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Transfer
 ```
-ezhelp.broadcast.transfer(wif, from, to, amount, memo, function(err, result) {
+wehelpjs.broadcast.transfer(wif, from, to, amount, memo, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Transfer To eScore
 ```
-ezhelp.broadcast.transferECOtoESCORfund(wif, from, to, amount, function(err, result) {
+wehelpjs.broadcast.transferECOtoESCORfund(wif, from, to, amount, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Vote
 ```
-ezhelp.broadcast.vote(wif, voter, author, permlink, weight, function(err, result) {
+wehelpjs.broadcast.vote(wif, voter, author, permlink, weight, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Withdraw eScore as ECO
 ```
-ezhelp.broadcast.withdrawESCORasECO(wif, account, ESCOR, function(err, result) {
+wehelpjs.broadcast.withdrawESCORasECO(wif, account, ESCOR, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Witness Update
 ```
-ezhelp.broadcast.witnessUpdate(wif, owner, url, blockSigningKey, props, fee, function(err, result) {
+wehelpjs.broadcast.witnessUpdate(wif, owner, url, blockSigningKey, props, fee, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill eScore Withdraw with ECO
 ```
-ezhelp.broadcast.fillESCORWithdrawWithECO(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
+wehelpjs.broadcast.fillESCORWithdrawWithECO(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill Order
 ```
-ezhelp.broadcast.fillOrder(wif, currentOwner, currentOrderid, currentPays, openOwner, openOrderid, openPays, function(err, result) {
+wehelpjs.broadcast.fillOrder(wif, currentOwner, currentOrderid, currentPays, openOwner, openOrderid, openPays, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Fill Transfer From Savings
 ```
-ezhelp.broadcast.fillTransferFromSavings(wif, from, to, amount, requestId, memo, function(err, result) {
+wehelpjs.broadcast.fillTransferFromSavings(wif, from, to, amount, requestId, memo, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Comment Payout
 ```
-ezhelp.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
+wehelpjs.broadcast.commentPayout(wif, author, permlink, payout, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Transfer To Savings
 ```
-ezhelp.broadcast.transferToSavings(wif, from, to, amount, memo, function(err, result) {
+wehelpjs.broadcast.transferToSavings(wif, from, to, amount, memo, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Transfer From Savings
 ```
-ezhelp.broadcast.transferFromSavings(wif, from, requestId, to, amount, memo, function(err, result) {
+wehelpjs.broadcast.transferFromSavings(wif, from, requestId, to, amount, memo, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Cancel Transfer From Savings
 ```
-ezhelp.broadcast.cancelTransferFromSavings(wif, from, requestId, function(err, result) {
+wehelpjs.broadcast.cancelTransferFromSavings(wif, from, requestId, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -843,7 +843,7 @@ ezhelp.broadcast.cancelTransferFromSavings(wif, from, requestId, function(err, r
 ### Multisig
 You can use multisignature to broadcast an operation.
 ```
-ezhelp.broadcast.send({
+wehelpjs.broadcast.send({
   extensions: [],
   operations: [
     ['vote', {
@@ -861,49 +861,49 @@ ezhelp.broadcast.send({
 
 ### Verify
 ```
-ezhelp.auth.verify(name, password, auths);
+wehelpjs.auth.verify(name, password, auths);
 ```
 
 ### Generate Keys
 ```
-ezhelp.auth.generateKeys(name, password, roles);
+wehelpjs.auth.generateKeys(name, password, roles);
 ```
 
 ### Get Private Keys
 ```
-ezhelp.auth.getPrivateKeys(name, password, roles);
+wehelpjs.auth.getPrivateKeys(name, password, roles);
 ```
 
 ### Is Wif
 ```
-ezhelp.auth.isWif(privWif);
+wehelpjs.auth.isWif(privWif);
 ```
 
 ### To Wif
 ```
-ezhelp.auth.toWif(name, password, role);
+wehelpjs.auth.toWif(name, password, role);
 ```
 
 ### Wif Is Valid
 ```
-ezhelp.auth.wifIsValid(privWif, pubWif);
+wehelpjs.auth.wifIsValid(privWif, pubWif);
 ```
 
 ### Wif To Public
 ```
-ezhelp.auth.wifToPublic(privWif);
+wehelpjs.auth.wifToPublic(privWif);
 ```
 
 ### Sign Transaction
 ```
-ezhelp.auth.signTransaction(trx, keys);
+wehelpjs.auth.signTransaction(trx, keys);
 ```
 
 # Formatter
 
 ### Create Suggested Password
 ```
-var password = ezhelp.formatter.createSuggestedPassword();
+var password = wehelpjs.formatter.createSuggestedPassword();
 console.log(password);
 // => 'GAz3GYFvvQvgm7t2fQmwMDuXEzDqTzn9'
 ```
@@ -912,26 +912,26 @@ console.log(password);
 ```
 var parentAuthor = 'ned';
 var parentPermlink = 'a-selfie';
-var commentPermlink = ezhelp.formatter.commentPermlink(parentAuthor, parentPermlink);
+var commentPermlink = wehelpjs.formatter.commentPermlink(parentAuthor, parentPermlink);
 console.log(commentPermlink);
 // => 're-ned-a-selfie-20170621t080403765z'
 ```
 
 ### Estimate Account Value
 ```
-var eUSD = ezhelp.formatter.estimateAccountValue(account);
+var eUSD = wehelpjs.formatter.estimateAccountValue(account);
 ```
 
 ### Reputation
 ```
-var reputation = ezhelp.formatter.reputation(3512485230915);
+var reputation = wehelpjs.formatter.reputation(3512485230915);
 console.log(reputation);
 // => 56
 ```
 
 ### ESCOR To ECO
 ```
-var ECO = ezhelp.formatter.ESCORinECO(ESCOR, totalESCOR, ESCORBackingECOFundBalance);
+var ECO = wehelpjs.formatter.ESCORinECO(ESCOR, totalESCOR, ESCORBackingECOFundBalance);
 console.log(ECO);
 ```
 
@@ -939,11 +939,11 @@ console.log(ECO);
 
 ### Validate Username
 ```
-var isValidUsername = ezhelp.utils.validateAccountName('test1234');
+var isValidUsername = wehelpjs.utils.validateAccountName('test1234');
 console.log(isValidUsername);
 // => 'null'
 
-var isValidUsername = ezhelp.utils.validateAccountName('a1');
+var isValidUsername = wehelpjs.utils.validateAccountName('a1');
 console.log(isValidUsername);
 // => 'Account name should be longer.'
 ```

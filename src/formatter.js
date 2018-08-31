@@ -1,7 +1,7 @@
 import get from "lodash/get";
 import { key_utils } from "./auth/ecc";
 
-module.exports = ezhelp.js => {
+module.exports = api => {
   function numberWithCommas(x) {
     return x.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -63,7 +63,7 @@ module.exports = ezhelp.js => {
     if (!ESCORvalueInECO || !feed_price) {
       if (!gprops || !feed_price) {
         promises.push(
-          ezhelp.js.getStateAsync(`/@{username}`).then(data => {
+          api.getStateAsync(`/@{username}`).then(data => {
             gprops = data.props;
             feed_price = data.feed_price;
             ESCORvalueInECO = ESCORvalueInECO(account, gprops);
@@ -76,7 +76,7 @@ module.exports = ezhelp.js => {
 
     if (!open_orders) {
       promises.push(
-        ezhelp.js.getOpenOrdersAsync(username).then(open_orders => {
+        api.getOpenOrdersAsync(username).then(open_orders => {
           orders = processOrders(open_orders, assetPrecision);
         })
       );
@@ -86,7 +86,7 @@ module.exports = ezhelp.js => {
 
     if (!savings_withdraws) {
       promises.push(
-        ezhelp.js
+        api
           .getSavingsWithdrawFromAsync(username)
           .then(savings_withdraws => {
             savings = calculateSaving(savings_withdraws);
@@ -106,7 +106,7 @@ module.exports = ezhelp.js => {
       const balanceECO_Parsed = parseFloat(account.balance.split(" ")[0]);
       const ECOsavingsBalance_Parsed = parseFloat(ECOsavingsBalance.split(" ")[0]);
       const EUSDbalance = parseFloat(account.EUSDbalance);
-      const EUSDsavingsBalance = parseFloat(EUSDsavingsBalance.split(" ")[0]);
+      const EUSDsavingsBalance_Parsed = parseFloat(EUSDsavingsBalance.split(" ")[0]);
 
       let conversionValue = 0;
       const currentTime = new Date().getTime();
@@ -125,7 +125,7 @@ module.exports = ezhelp.js => {
 
       const EUSDtotal =
         EUSDbalance +
-        EUSDsavingsBalance +
+        EUSDsavingsBalance_Parsed +
         savings.EUSDpendingSavings +
         orders.EUSDorders +
         conversionValue;

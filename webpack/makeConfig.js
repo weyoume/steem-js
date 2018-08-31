@@ -72,8 +72,8 @@ function makeConfig(options) {
   return {
     devtool: isDevelopment ? 'cheap-eval-source-map' : 'source-map',
     entry: {
-      ezhelp.js: path.join(options.baseDir, 'src/browser.js'),
-      'ezhelp.js-tests': path.join(options.baseDir, 'test/api.test.js'),
+      wehelpjs: path.join(options.baseDir, 'src/browser.js'),
+      'wehelpjs-tests': path.join(options.baseDir, 'test/api.test.js'),
     },
     output: {
       path: path.join(options.baseDir, 'dist'),

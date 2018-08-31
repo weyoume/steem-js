@@ -2,22 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ezira.js Broadcast</title>
+  <title>wehelpjs Broadcast</title>
 </head>
 <body>
 
-<script src="../dist/ezhelp.js.min.js"></script>
+<script src="../dist/wehelpjs.min.js"></script>
 <script>
   /** Configure your account */
   var username = 'guest123';
   var postingWif = '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg';
 
   /** Broadcast a vote */
-  ezhelp.js.broadcast.vote(
+  wehelpjs.broadcast.vote(
     postingWif,
     username, // Voter
     'firepower', // Author
-    'eziranetwork-veni-vidi-vici-ezirafest-2016-together-we-made-it-happen-thank-you-eziraians', // Permlink
+    'steemit-veni-vidi-vici-steemfest-2016-together-we-made-it-happen-thank-you-steemians', // Permlink
     10000, // Weight (10000 = 100%)
     function(err, result) {
       console.log(err, result);
@@ -27,7 +27,7 @@
   /** Broadcast a comment */
   var permlink = new Date().toISOString().replace(/[^a-zA-Z0-9]+/g, '').toLowerCase();
 
-  ezhelp.js.broadcast.comment(
+  wehelpjs.broadcast.comment(
     postingWif,
     'siol', // Parent Author
     'test', // Parent Permlink
@@ -35,7 +35,7 @@
     permlink, // Permlink
     '', // Title
     'This is a test!', // Body
-    { tags: ['test'], app: 'ezhelp.js/examples' }, // Json Metadata
+    { tags: ['test'], app: 'wehelpjs/examples' }, // Json Metadata
     function(err, result) {
       console.log(err, result);
     }
@@ -44,7 +44,7 @@
   /** Broadcast a post */
   var permlink = new Date().toISOString().replace(/[^a-zA-Z0-9]+/g, '').toLowerCase();
 
-  ezhelp.js.broadcast.comment(
+  wehelpjs.broadcast.comment(
     postingWif,
     '', // Leave parent author empty
     'photography', // Main tag
@@ -52,7 +52,7 @@
     permlink + '-post', // Permlink
     'This is just a test!', // Title
     'Nothing to see here', // Body
-    { tags: ['test'], app: 'ezhelp.js/examples' }, // Json Metadata
+    { tags: ['test'], app: 'wehelpjs/examples' }, // Json Metadata
     function(err, result) {
       console.log(err, result);
     }
@@ -60,7 +60,7 @@
 
   /** Follow an user */
   var follower = username; // Your username
-  var following = 'ezhelp.js'; // User to follow
+  var following = 'wehelpjs'; // User to follow
 
   var json = JSON.stringify(
     ['follow', {
@@ -70,7 +70,7 @@
     }]
   );
 
-  ezhelp.js.broadcast.customJson(
+  wehelpjs.broadcast.customJson(
     postingWif,
     [], // Required_auths
     [follower], // Required Posting Auths
@@ -90,7 +90,7 @@
     }]
   );
 
-  ezhelp.js.broadcast.customJson(
+  wehelpjs.broadcast.customJson(
     postingWif,
     [], // Required_auths
     [follower], // Required Posting Auths

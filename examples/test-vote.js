@@ -1,9 +1,9 @@
-const ezhelp.js = require('../lib');
+const wehelpjs = require('../lib');
 
 const username = 'guest123';
 const wif = '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg';
 
-ezhelp.js
+wehelpjs
   .broadcast
   .vote(
     wif,

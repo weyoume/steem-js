@@ -1,5 +1,5 @@
-# `ezhelp.js` webpack configuration example
-This is a demo of `ezhelp.js` and webpack usage targetting both the Web and
+# `wehelpjs` webpack configuration example
+This is a demo of `wehelpjs` and webpack usage targetting both the Web and
 Node.js platforms.
 
 ## Compiling the example

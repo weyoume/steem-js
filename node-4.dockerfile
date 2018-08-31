@@ -1,6 +1,6 @@
 FROM node:4
-ADD ./package.json /ezhelp.js/package.json
-WORKDIR /ezhelp.js
+ADD ./package.json /wehelpjs/package.json
+WORKDIR /wehelpjs
 RUN npm install
-ADD . /ezhelp.js
+ADD . /wehelpjs
 RUN npm test

@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ezira.js</title>
+  <title>wehelpjs</title>
 </head>
 <body>
 
-<script src="../dist/ezhelp.js.min.js"></script>
+<script src="../dist/wehelpjs.min.js"></script>
 <script>
-ezhelp.js.api.getConfig(function(err, response){
+wehelpjs.api.getConfig(function(err, response){
   console.log(err, response);
 });
-ezhelp.js.api.getAccounts(['ned', 'dan'], function(err, response){
+wehelpjs.api.getAccounts(['ned', 'dan'], function(err, response){
   console.log(err, response);
 });
-ezhelp.js.api.getAccountCount(function(err, response){
+wehelpjs.api.getAccountCount(function(err, response){
   console.log(err, response);
 });
 </script>

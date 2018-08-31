@@ -1,13 +1,13 @@
 
-// This file is merge updated from eznode's js_operation_serializer program.
+// This file is merge updated from node's js_operation_serializer program.
 /*
 
 ./js_operation_serializer |
 sed 's/void/future_extensions/g'|
-sed 's/eznode_protocol:://g'|
+sed 's/node_protocol:://g'|
 sed 's/14static_variantIJNS_12fixed_stringINSt3__14pairIyyEEEEEEE/string/g'|
-sed 's/eznode_future_extensions/future_extensions/g'|
-sed 's/eznode_protocol_//g' > tmp.coffee
+sed 's/node_future_extensions/future_extensions/g'|
+sed 's/node_protocol_//g' > tmp.coffee
 
 */
 // coffee tmp.coffee # fix errors until you see: `ChainTypes is not defined`

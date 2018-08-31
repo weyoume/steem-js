@@ -11,7 +11,7 @@ build/Release
 node_modules
 .tern-port
 
-dist/ezhelp.js-tests.min.js*
+dist/wehelpjs-tests.min.js*
 # node-dist
 .tern-port
 .envrc

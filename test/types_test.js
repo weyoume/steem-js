@@ -6,7 +6,7 @@ var type = require('../src/auth/serializer/src/types');
 var p = require('../src/auth/serializer/src/precision');
 var th = require('./test_helper');
 
-describe("ezhelp.js.auth: types", function() {
+describe("wehelpjs.auth: types", function() {
 
     it("vote_id",function() {
         var toHex=function(id){
@@ -53,13 +53,13 @@ describe("ezhelp.js.auth: types", function() {
     it("public_key sort", function() {
         let mapType = type.map(type.public_key, type.uint16)
         let map = mapType.fromObject([//not sorted
-          ["EZT8me6d9PqzTgcoHxx6b4rnvWVTqz11kafidRAZwfacJkcJtfd75",0],
-          ["EZT56ankGHKf6qUsQe7vPsXTSEqST6Dt1ff73aV3YQbedzRua8NLQ",0],
+          ["TWE8me6d9PqzTgcoHxx6b4rnvWVTqz11kafidRAZwfacJkcJtfd75",0],
+          ["TWE56ankGHKf6qUsQe7vPsXTSEqST6Dt1ff73aV3YQbedzRua8NLQ",0],
         ])
         let mapObject = mapType.toObject(map)
         assert.deepEqual(mapObject, [ // sorted (uppercase comes first)
-            ["EZT56ankGHKf6qUsQe7vPsXTSEqST6Dt1ff73aV3YQbedzRua8NLQ",0],
-            ["EZT8me6d9PqzTgcoHxx6b4rnvWVTqz11kafidRAZwfacJkcJtfd75",0],
+            ["TWE56ankGHKf6qUsQe7vPsXTSEqST6Dt1ff73aV3YQbedzRua8NLQ",0],
+            ["TWE8me6d9PqzTgcoHxx6b4rnvWVTqz11kafidRAZwfacJkcJtfd75",0],
         ])
     })
 

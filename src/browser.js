@@ -2,10 +2,10 @@ const api = require("./api");
 const auth = require("./auth");
 const broadcast = require("./broadcast");
 const config = require("./config");
-const formatter = require("./ezformatter")(api);
+const formatter = require("./formatter")(api);
 const utils = require("./utils");
 
-const ezhelp.js = {
+const wehelpjs = {
   api,
   auth,
   broadcast,
@@ -15,11 +15,11 @@ const ezhelp.js = {
 };
 
 if (typeof window !== "undefined") {
-  window.ezhelp.js = ezhelp.js;
+  window.wehelpjs = wehelpjs;
 }
 
 if (typeof global !== "undefined") {
-  global.ezhelp.js = ezhelp.js;
+  global.wehelpjs = wehelpjs;
 }
 
-exports = module.exports = ezhelp.js;
+exports = module.exports = wehelpjs;

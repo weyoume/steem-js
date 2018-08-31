@@ -17,9 +17,9 @@ import {
 } from './transports/http';
 import {
     sign as signRequest
-} from 'ezrpc.js';
+} from 'werpcjs';
 
-class Ezapi extends EventEmitter {
+class Api extends EventEmitter {
     constructor(options = {}) {
         super(options);
         this._setTransport(options);
@@ -343,6 +343,6 @@ class Ezapi extends EventEmitter {
 }
 
 // Export singleton instance
-const ezhelp.js = new Ezapi(config);
-exports = module.exports = ezhelp.js;
-exports.Ezapi = Ezapi;
+const api = new Api(config);
+exports = module.exports = api;
+exports.Api = Api;

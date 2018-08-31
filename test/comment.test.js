@@ -1,15 +1,15 @@
 import Promise from 'bluebird';
 import should from 'should';
-import ezhelp.js from '../src';
+import wehelpjs from '../src';
 import pkg from '../package.json';
 
-const username = process.env.EZNODE_USERNAME || 'guest123';
-const password = process.env.EZNODE_PASSWORD;
+const username = process.env.NODE_USERNAME || 'guest123';
+const password = process.env.NODE_PASSWORD;
 const postingWif = password
-  ? ezhelp.js.auth.toWif(username, password, 'posting')
+  ? wehelpjs.auth.toWif(username, password, 'posting')
   : '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg';
 
-describe('ezhelp.js.broadcast:', () => {
+describe('wehelpjs.broadcast:', () => {
 
   describe('comment with options', () => {
     before(() => {
@@ -17,7 +17,7 @@ describe('ezhelp.js.broadcast:', () => {
     });
 
     it('works', async () => {
-      const permlink = ezhelp.js.formatter.commentPermlink('siol', 'test');
+      const permlink = wehelpjs.formatter.commentPermlink('siol', 'test');
       const operations = [
         ['comment',
           {
@@ -26,10 +26,10 @@ describe('ezhelp.js.broadcast:', () => {
             author: username,
             permlink,
             title: 'Test',
-            body: `This is a test using Ezira.js v${pkg.version}.`,
+            body: `This is a test using wehelpjs v${pkg.version}.`,
             json : JSON.stringify({
               tags: ['test'],
-              app: `ezhelp.js/${pkg.version}`
+              app: `wehelpjs/${pkg.version}`
             })
           }
         ],
@@ -51,7 +51,7 @@ describe('ezhelp.js.broadcast:', () => {
         }]
       ];
 
-      const tx = await ezhelp.js.broadcast.sendAsync(
+      const tx = await wehelpjs.broadcast.sendAsync(
         { operations, extensions: [] },
         { posting: postingWif }
       );

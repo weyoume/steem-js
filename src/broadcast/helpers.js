@@ -1,7 +1,7 @@
 import api from '../api';
 
-exports = module.exports = ezhelp.jsBroadcast => {
-  ezhelp.jsBroadcast.addAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting', weight }, cb) => {
+exports = module.exports = wehelpjsBroadcast => {
+  wehelpjsBroadcast.addAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting', weight }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -23,7 +23,7 @@ exports = module.exports = ezhelp.jsBroadcast => {
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
       /** Add authority on user account */
-      ezhelp.jsBroadcast.accountUpdate(
+      wehelpjsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,
@@ -36,7 +36,7 @@ exports = module.exports = ezhelp.jsBroadcast => {
     });
   };
 
-  ezhelp.jsBroadcast.removeAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting' }, cb) => {
+  wehelpjsBroadcast.removeAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting' }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -60,7 +60,7 @@ exports = module.exports = ezhelp.jsBroadcast => {
       const active = role === 'active' ? updatedAuthority : undefined;
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
-      ezhelp.jsBroadcast.accountUpdate(
+      wehelpjsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,
@@ -73,7 +73,7 @@ exports = module.exports = ezhelp.jsBroadcast => {
     });
   };
 
-  ezhelp.jsBroadcast.addKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting', weight }, cb) => {
+  wehelpjsBroadcast.addKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting', weight }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -95,7 +95,7 @@ exports = module.exports = ezhelp.jsBroadcast => {
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
       /** Add authority on user account */
-      ezhelp.jsBroadcast.accountUpdate(
+      wehelpjsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,
@@ -108,7 +108,7 @@ exports = module.exports = ezhelp.jsBroadcast => {
     });
   };
 
-  ezhelp.jsBroadcast.removeKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting' }, cb) => {
+  wehelpjsBroadcast.removeKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting' }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -132,7 +132,7 @@ exports = module.exports = ezhelp.jsBroadcast => {
       const active = role === 'active' ? updatedAuthority : undefined;
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
-      ezhelp.jsBroadcast.accountUpdate(
+      wehelpjsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,

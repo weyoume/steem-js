@@ -1,15 +1,15 @@
-const ezhelp.js = require('../lib');
+const wehelpjs = require('../lib');
 
 /* Generate private active WIF */
-const username = process.env.EZNODE_USERNAME;
-const password = process.env.EZNODE_PASSWORD;
-const privActiveWif = ezhelp.js.auth.toWif(username, password, 'active');
+const username = process.env.NODE_USERNAME;
+const password = process.env.NODE_PASSWORD;
+const privActiveWif = wehelpjs.auth.toWif(username, password, 'active');
 
 /** Add posting key auth */
-ezhelp.js.broadcast.addKeyAuth({
+wehelpjs.broadcast.addKeyAuth({
     signingKey: privActiveWif,
     username,
-    authorizedKey: 'EZT88CPfhCmeEzCnvC1Cjc3DNd1DTjkMcmihih8SSxmm4LBqRq5Y9',
+    authorizedKey: 'TWE88CPfhCmeEzCnvC1Cjc3DNd1DTjkMcmihih8SSxmm4LBqRq5Y9',
     role: 'posting',
   },
   (err, result) => {

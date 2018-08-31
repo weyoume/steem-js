@@ -3,6 +3,6 @@
   "websocket": "wss://peer.ezira.io:8090",
   "uri": "https://api.ezira.io",
   "url": "",
-  "address_prefix": "EZT",
+  "address_prefix": "TWE",
   "chain_id": "ed8b34c6c348987271fa7128c1f89072ab07b832aa0d7057b165d83d513b461a"
 }
