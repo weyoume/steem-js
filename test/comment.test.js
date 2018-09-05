@@ -36,8 +36,8 @@ describe('wehelpjs.broadcast:', () => {
         ['comment_options', {
           author: username,
           permlink,
-          max_accepted_payout: '1000000.000 EUSD',
-          percent_EUSD: 10000,
+          max_accepted_payout: '1000000.000 TSD',
+          percent_TSD: 10000,
           allow_votes: true,
           allow_curationRewards: true,
           extensions: [

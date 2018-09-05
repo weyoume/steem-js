@@ -9,7 +9,7 @@ const privActiveWif = wehelpjs.auth.toWif(username, password, 'active');
 wehelpjs.broadcast.addKeyAuth({
     signingKey: privActiveWif,
     username,
-    authorizedKey: 'TWE88CPfhCmeEzCnvC1Cjc3DNd1DTjkMcmihih8SSxmm4LBqRq5Y9',
+    authorizedKey: 'TME88CPfhCmeEzCnvC1Cjc3DNd1DTjkMcmihih8SSxmm4LBqRq5Y9',
     role: 'posting',
   },
   (err, result) => {

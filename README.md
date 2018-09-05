@@ -41,9 +41,9 @@ wehelpjs.api.getAccounts(['ned', 'dan'], function(err, response){
 ```
 
 ## CDN
-https://cdn.ezira.io/lib/latest/wehelpjs.min.js<br/>
+https://cdn.weyoume.io/lib/latest/wehelpjs.min.js<br/>
 ```html
-<script src="//cdn.ezira.io/lib/latest/wehelpjs.min.js"></script>
+<script src="//cdn.weyoume.io/lib/latest/wehelpjs.min.js"></script>
 ```
 
 ## Webpack
@@ -56,10 +56,10 @@ $ npm install --save wehelpjs
 ```
 
 ## RPC Servers
-https://api.ezira.io By Default<br/>
-https://peer0.ezira.io:8090<br/>
-https://peer0.ezira.io:8091<br/>
-https://peer0.ezira.io:8092<br/>
+https://api.weyoume.io By Default<br/>
+https://peer0.weyoume.io:8090<br/>
+https://peer0.weyoume.io:8091<br/>
+https://peer0.weyoume.io:8092<br/>
 
 ## Examples
 ### Broadcast Vote

@@ -182,18 +182,18 @@ let transfer = new Serializer(
 }
 );
 
-let transferECOtoESCORfund = new Serializer( 
-    "transferECOtoESCORfund", {
+let transferTMEtoSCOREfund = new Serializer( 
+    "transferTMEtoSCOREfund", {
     from: string,
     to: string,
     amount: asset
 }
 );
 
-let withdrawESCOR = new Serializer( 
-    "withdrawESCOR", {
+let withdrawSCORE = new Serializer( 
+    "withdrawSCORE", {
     account: string,
-    ESCOR: asset
+    SCORE: asset
 }
 );
 
@@ -273,7 +273,7 @@ let chain_properties = new Serializer(
     "chain_properties", {
     account_creation_fee: asset,
     maximum_block_size: uint32,
-    EUSD_interest_rate: uint16
+    TSD_interest_rate: uint16
 }
 );
 
@@ -348,7 +348,7 @@ let comment_options = new Serializer(
     author: string,
     permlink: string,
     max_accepted_payout: asset,
-    percent_EUSD: uint16,
+    percent_TSD: uint16,
     allow_votes: bool,
     allow_curationRewards: bool,
     extensions: set(static_variant([
@@ -357,12 +357,12 @@ let comment_options = new Serializer(
 }
 );
 
-let setWithdrawESCORasECOroute = new Serializer( 
-    "setWithdrawESCORasECOroute", {
+let setWithdrawSCOREasTMEroute = new Serializer( 
+    "setWithdrawSCOREasTMEroute", {
     from_account: string,
     to_account: string,
     percent: uint16,
-    autoESCOR: bool
+    autoSCORE: bool
 }
 );
 
@@ -422,8 +422,8 @@ let escrow_transfer = new Serializer(
     "escrow_transfer", {
     from: string,
     to: string,
-    EUSDamount: asset,
-    ECOamount: asset,
+    TSDamount: asset,
+    TMEamount: asset,
     escrow_id: uint32,
     agent: string,
     fee: asset,
@@ -451,8 +451,8 @@ let escrow_release = new Serializer(
     who: string,
     receiver: string,
     escrow_id: uint32,
-    EUSDamount: asset,
-    ECOamount: asset
+    TSDamount: asset,
+    TMEamount: asset
 }
 );
 
@@ -563,17 +563,17 @@ let set_reset_account = new Serializer(
 let claimRewardBalance = new Serializer( 
     "claimRewardBalance", {
     account: string,
-    ECOreward: asset,
-    EUSDreward: asset,
-    ESCORreward: asset
+    TMEreward: asset,
+    TSDreward: asset,
+    SCOREreward: asset
 }
 );
 
-let delegateESCOR = new Serializer( 
-    "delegateESCOR", {
+let delegateSCORE = new Serializer( 
+    "delegateSCORE", {
     delegator: string,
     delegatee: string,
-    ESCOR: asset
+    SCORE: asset
 }
 );
 
@@ -605,9 +605,9 @@ let authorReward = new Serializer(
     "authorReward", {
     author: string,
     permlink: string,
-    EUSDpayout: asset,
-    ECOpayout: asset,
-    ESCORpayout: asset
+    TSDpayout: asset,
+    TMEpayout: asset,
+    SCOREpayout: asset
 }
 );
 
@@ -642,8 +642,8 @@ let interest = new Serializer(
 }
 );
 
-let fillESCORWithdraw = new Serializer( 
-    "fillESCORWithdraw", {
+let fillSCOREWithdraw = new Serializer( 
+    "fillSCOREWithdraw", {
     from_account: string,
     to_account: string,
     withdrawn: asset,
@@ -689,10 +689,10 @@ let comment_payout_update = new Serializer(
 }
 );
 
-let return_ESCOR_delegation = new Serializer( 
-    "return_ESCOR_delegation", {
+let return_SCORE_delegation = new Serializer( 
+    "return_SCORE_delegation", {
     account: string,
-    ESCOR: asset
+    SCORE: asset
 }
 );
 
@@ -709,8 +709,8 @@ operation.st_operations = [
     vote,    
     comment,    
     transfer,    
-    transferECOtoESCORfund,    
-    withdrawESCOR,    
+    transferTMEtoSCOREfund,    
+    withdrawSCORE,    
     limit_order_create,    
     limit_order_cancel,    
     feed_publish,    
@@ -726,7 +726,7 @@ operation.st_operations = [
     deleteComment,    
     customJson,    
     comment_options,    
-    setWithdrawESCORasECOroute,    
+    setWithdrawSCOREasTMEroute,    
     limit_order_create2,    
     challenge_authority,    
     prove_authority,    
@@ -746,7 +746,7 @@ operation.st_operations = [
     reset_account,    
     set_reset_account,    
     claimRewardBalance,    
-    delegateESCOR,    
+    delegateSCORE,    
     accountCreateWithDelegation,    
     fill_convert_request,    
     authorReward,    
@@ -754,13 +754,13 @@ operation.st_operations = [
     comment_reward,    
     liquidity_reward,    
     interest,    
-    fillESCORWithdraw,    
+    fillSCOREWithdraw,    
     fill_order,    
     shutdown_witness,    
     fill_transferFromSavings,    
     hardfork,    
     comment_payout_update,    
-    return_ESCOR_delegation,    
+    return_SCORE_delegation,    
     comment_benefactor_reward
 ];
 

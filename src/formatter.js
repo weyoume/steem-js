@@ -6,71 +6,71 @@ module.exports = api => {
     return x.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  function ESCORvalueInECO(account, gprops) {
-    const accountESCOR = parseFloat(account.ESCOR.split(" ")[0]);
-    const totalESCOR = parseFloat(gprops.totalESCOR.split(" ")[0]);
-    const totalESCORvalueInECO = parseFloat(
-      gprops.totalECOfundForESCOR.split(" ")[0]
+  function SCOREvalueInTME(account, gprops) {
+    const accountSCORE = parseFloat(account.SCORE.split(" ")[0]);
+    const totalSCORE = parseFloat(gprops.totalSCORE.split(" ")[0]);
+    const totalSCOREvalueInTME = parseFloat(
+      gprops.totalTMEfundForSCORE.split(" ")[0]
     );
-    const ESCORvalueInECO = totalESCORvalueInECO * (accountESCOR / totalESCOR);
-    return ESCORvalueInECO;
+    const SCOREvalueInTME = totalSCOREvalueInTME * (accountSCORE / totalSCORE);
+    return SCOREvalueInTME;
   }
 
   function processOrders(open_orders, assetPrecision) {
-    const EUSDorders = !open_orders
+    const TSDorders = !open_orders
       ? 0
       : open_orders.reduce((o, order) => {
-          if (order.sell_price.base.indexOf("EUSD") !== -1) {
+          if (order.sell_price.base.indexOf("TSD") !== -1) {
             o += order.for_sale;
           }
           return o;
         }, 0) / assetPrecision;
 
-    const ordersECO = !open_orders
+    const ordersTME = !open_orders
       ? 0
       : open_orders.reduce((o, order) => {
-          if (order.sell_price.base.indexOf("ECO") !== -1) {
+          if (order.sell_price.base.indexOf("TME") !== -1) {
             o += order.for_sale;
           }
           return o;
         }, 0) / assetPrecision;
 
-    return { ordersECO, EUSDorders };
+    return { ordersTME, TSDorders };
   }
 
   function calculateSaving(savings_withdraws) {
-    let ECOsavingsPending = 0;
-    let EUSDpendingSavings = 0;
+    let TMEsavingsPending = 0;
+    let TSDpendingSavings = 0;
     savings_withdraws.forEach(withdraw => {
       const [amount, asset] = withdraw.amount.split(" ");
-      if (asset === "ECO") ECOsavingsPending += parseFloat(amount);
+      if (asset === "TME") TMEsavingsPending += parseFloat(amount);
       else {
-        if (asset === "EUSD") EUSDpendingSavings += parseFloat(amount);
+        if (asset === "TSD") TSDpendingSavings += parseFloat(amount);
       }
     });
-    return { ECOsavingsPending, EUSDpendingSavings };
+    return { TMEsavingsPending, TSDpendingSavings };
   }
 
   function estimateAccountValue(
     account,
-    { gprops, feed_price, open_orders, savings_withdraws, ESCORvalueInECO } = {}
+    { gprops, feed_price, open_orders, savings_withdraws, SCOREvalueInTME } = {}
   ) {
     const promises = [];
     const username = account.name;
     const assetPrecision = 1000;
     let orders, savings;
 
-    if (!ESCORvalueInECO || !feed_price) {
+    if (!SCOREvalueInTME || !feed_price) {
       if (!gprops || !feed_price) {
         promises.push(
           api.getStateAsync(`/@{username}`).then(data => {
             gprops = data.props;
             feed_price = data.feed_price;
-            ESCORvalueInECO = ESCORvalueInECO(account, gprops);
+            SCOREvalueInTME = SCOREvalueInTME(account, gprops);
           })
         );
       } else {
-        ESCORvalueInECO = ESCORvalueInECO(account, gprops);
+        SCOREvalueInTME = SCOREvalueInTME(account, gprops);
       }
     }
 
@@ -97,16 +97,16 @@ module.exports = api => {
     }
 
     return Promise.all(promises).then(() => {
-      let ECOtoEUSDprice = undefined;
+      let TMEtoTSDprice = undefined;
       const { base, quote } = feed_price;
-      if (/ EUSD$/.test(base) && / ECO$/.test(quote))
-        ECOtoEUSDprice = parseFloat(base.split(" ")[0]);
-      const ECOsavingsBalance = account.ECOsavingsBalance;
-      const EUSDsavingsBalance = account.EUSDsavingsBalance;
-      const balanceECO_Parsed = parseFloat(account.balance.split(" ")[0]);
-      const ECOsavingsBalance_Parsed = parseFloat(ECOsavingsBalance.split(" ")[0]);
-      const EUSDbalance = parseFloat(account.EUSDbalance);
-      const EUSDsavingsBalance_Parsed = parseFloat(EUSDsavingsBalance.split(" ")[0]);
+      if (/ TSD$/.test(base) && / TME$/.test(quote))
+        TMEtoTSDprice = parseFloat(base.split(" ")[0]);
+      const TMEsavingsBalance = account.TMEsavingsBalance;
+      const TSDsavingsBalance = account.TSDsavingsBalance;
+      const balanceTME_Parsed = parseFloat(account.balance.split(" ")[0]);
+      const TMEsavingsBalance_Parsed = parseFloat(TMEsavingsBalance.split(" ")[0]);
+      const TSDbalance = parseFloat(account.TSDbalance);
+      const TSDsavingsBalance_Parsed = parseFloat(TSDsavingsBalance.split(" ")[0]);
 
       let conversionValue = 0;
       const currentTime = new Date().getTime();
@@ -118,26 +118,26 @@ module.exports = api => {
         if (finishTime < currentTime) return out;
 
         const amount = parseFloat(
-          get(item, [1, "op", 1, "amount"]).replace(" EUSD", "")
+          get(item, [1, "op", 1, "amount"]).replace(" TSD", "")
         );
         conversionValue += amount;
       }, []);
 
-      const EUSDtotal =
-        EUSDbalance +
-        EUSDsavingsBalance_Parsed +
-        savings.EUSDpendingSavings +
-        orders.EUSDorders +
+      const TSDtotal =
+        TSDbalance +
+        TSDsavingsBalance_Parsed +
+        savings.TSDpendingSavings +
+        orders.TSDorders +
         conversionValue;
 
-      const totalECO =
-        ESCORvalueInECO +
-        balanceECO_Parsed +
-        ECOsavingsBalance_Parsed +
-        savings.ECOsavingsPending +
-        orders.ordersECO;
+      const totalTME =
+        SCOREvalueInTME +
+        balanceTME_Parsed +
+        TMEsavingsBalance_Parsed +
+        savings.TMEsavingsPending +
+        orders.ordersTME;
 
-      return (totalECO * ECOtoEUSDprice + EUSDtotal).toFixed(2);
+      return (totalTME * TMEtoTSDprice + TSDtotal).toFixed(2);
     });
   }
 
@@ -167,14 +167,14 @@ module.exports = api => {
       return out;
     },
 
-    ESCORinECOvalue: function(
-      ESCOR,
-      totalESCOR,
-      ESCORbackingECOfundBalance
+    SCOREinTMEvalue: function(
+      SCORE,
+      totalSCORE,
+      SCOREbackingTMEfundBalance
     ) {
       return (
-        parseFloat(ESCORbackingECOfundBalance) *
-        (parseFloat(ESCOR) / parseFloat(totalESCOR))
+        parseFloat(SCOREbackingTMEfundBalance) *
+        (parseFloat(SCORE) / parseFloat(totalSCORE))
       );
     },
 
@@ -191,7 +191,7 @@ module.exports = api => {
       return amount.toFixed(3) + " " + asset;
     },
     numberWithCommas,
-    ESCORvalueInECO,
+    SCOREvalueInTME,
     estimateAccountValue,
     createSuggestedPassword
   };

@@ -48,7 +48,7 @@ wehelpjs.config.set('chain_id','782a3039b478c839e4cb0c941ff4eaeb7df40bdd68bd441a
 ```
 ### set
 ```
-wehelpjs.config.set('address_prefix','TWE');
+wehelpjs.config.set('address_prefix','TME');
 ```
 ### get
 ```
@@ -58,7 +58,7 @@ wehelpjs.config.get('chain_id');
 ## JSON-RPC
 Here is how to activate JSON-RPC transport:
 ```js
-wehelpjs.api.setOptions({ url: 'https://api.ezira.io' });
+wehelpjs.api.setOptions({ url: 'https://api.weyoume.io' });
 ```
 
 # API
@@ -260,9 +260,9 @@ wehelpjs.api.getRewardFund(name, function(err, result) {
   console.log(err, result);
 });
 ```
-### Get eScore Delegations
+### Get SCORE Delegations
 ```
-wehelpjs.api.getESCORdelegations(account, from, limit, function(err, result) {
+wehelpjs.api.getSCOREdelegations(account, from, limit, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -553,7 +553,7 @@ wehelpjs.broadcast.accountCreateWithDelegation(wif, fee, delegation, creator, ne
 ```
 ### Delegate E Score
 ```
-wehelpjs.broadcast.delegateESCOR(wif, delegator, delegatee, ESCOR, function(err, result) {
+wehelpjs.broadcast.delegateSCORE(wif, delegator, delegatee, SCORE, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -595,7 +595,7 @@ wehelpjs.broadcast.comment(wif, parentAuthor, parentPermlink, author, permlink, 
 ```
 ### Comment Options
 ```
-wehelpjs.broadcast.commentOptions(wif, author, permlink, maxAcceptedPayout, percenteUSD, allowVotes, allowCurationRewards, extensions, function(err, result) {
+wehelpjs.broadcast.commentOptions(wif, author, permlink, maxAcceptedPayout, percentTSD, allowVotes, allowCurationRewards, extensions, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -607,7 +607,7 @@ wehelpjs.broadcast.commentPayout(wif, author, permlink, payout, function(err, re
 ```
 ### Comment Reward
 ```
-wehelpjs.broadcast.commentReward(wif, author, permlink, eUSDpayout, ESCORpayout, function(err, result) {
+wehelpjs.broadcast.commentReward(wif, author, permlink, TSDpayout, SCOREpayout, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -655,13 +655,13 @@ wehelpjs.broadcast.escrowDispute(wif, from, to, agent, who, escrowId, function(e
 ```
 ### Escrow Release
 ```
-wehelpjs.broadcast.escrowRelease(wif, from, to, agent, who, receiver, escrowId, eUSDAmount, ECOAmount, function(err, result) {
+wehelpjs.broadcast.escrowRelease(wif, from, to, agent, who, receiver, escrowId, TSDAmount, TMEamount, function(err, result) {
   console.log(err, result);
 });
 ```
 ### Escrow Transfer
 ```
-wehelpjs.broadcast.escrowTransfer(wif, from, to, agent, escrowId, eUSDAmount, ECOAmount, fee, ratificationDeadline, escrowExpiration, jsonMeta, function(err, result) {
+wehelpjs.broadcast.escrowTransfer(wif, from, to, agent, escrowId, TSDAmount, TMEamount, fee, ratificationDeadline, escrowExpiration, jsonMeta, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -689,9 +689,9 @@ wehelpjs.broadcast.fillOrder(wif, currentOwner, currentOrderid, currentPays, ope
   console.log(err, result);
 });
 ```
-### Fill eScore Withdraw With ECO
+### Fill SCORE Withdraw With TME
 ```
-wehelpjs.broadcast.fillESCORWithdrawWithECO(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
+wehelpjs.broadcast.fillSCOREWithdrawWithTME(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -761,9 +761,9 @@ wehelpjs.broadcast.escrowApprove(wif, from, to, agent, who, escrowId, approve, f
   console.log(err, result);
 });
 ```
-### Set Withdraw eScore as ECO Route
+### Set Withdraw SCORE as TME Route
 ```
-wehelpjs.broadcast.setWithdrawESCORasECOroute(wif, fromAccount, toAccount, percent, autoESCOR, function(err, result) {
+wehelpjs.broadcast.setWithdrawSCOREasTMEroute(wif, fromAccount, toAccount, percent, autoSCORE, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -773,9 +773,9 @@ wehelpjs.broadcast.transfer(wif, from, to, amount, memo, function(err, result) {
   console.log(err, result);
 });
 ```
-### Transfer To eScore
+### Transfer To SCORE
 ```
-wehelpjs.broadcast.transferECOtoESCORfund(wif, from, to, amount, function(err, result) {
+wehelpjs.broadcast.transferTMEtoSCOREfund(wif, from, to, amount, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -785,9 +785,9 @@ wehelpjs.broadcast.vote(wif, voter, author, permlink, weight, function(err, resu
   console.log(err, result);
 });
 ```
-### Withdraw eScore as ECO
+### Withdraw SCORE as TME
 ```
-wehelpjs.broadcast.withdrawESCORasECO(wif, account, ESCOR, function(err, result) {
+wehelpjs.broadcast.withdrawSCOREasTME(wif, account, SCORE, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -797,9 +797,9 @@ wehelpjs.broadcast.witnessUpdate(wif, owner, url, blockSigningKey, props, fee, f
   console.log(err, result);
 });
 ```
-### Fill eScore Withdraw with ECO
+### Fill SCORE Withdraw with TME
 ```
-wehelpjs.broadcast.fillESCORWithdrawWithECO(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
+wehelpjs.broadcast.fillSCOREWithdrawWithTME(wif, fromAccount, toAccount, withdrawn, deposited, function(err, result) {
   console.log(err, result);
 });
 ```
@@ -919,7 +919,7 @@ console.log(commentPermlink);
 
 ### Estimate Account Value
 ```
-var eUSD = wehelpjs.formatter.estimateAccountValue(account);
+var TSD = wehelpjs.formatter.estimateAccountValue(account);
 ```
 
 ### Reputation
@@ -929,10 +929,10 @@ console.log(reputation);
 // => 56
 ```
 
-### ESCOR To ECO
+### SCORE To TME
 ```
-var ECO = wehelpjs.formatter.ESCORinECO(ESCOR, totalESCOR, ESCORBackingECOFundBalance);
-console.log(ECO);
+var TME = wehelpjs.formatter.SCOREinTME(SCORE, totalSCORE, SCOREBackingTMEfundBalance);
+console.log(TME);
 ```
 
 # Utils

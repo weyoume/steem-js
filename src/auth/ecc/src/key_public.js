@@ -72,8 +72,8 @@ class PublicKey {
     }
 
     /**
-        @arg {string} public_key - like TWEXyz...
-        @arg {string} address_prefix - like TWE
+        @arg {string} public_key - like TMEXyz...
+        @arg {string} address_prefix - like TME
         @return PublicKey or `null` (if the public_key string is invalid)
         @deprecated fromPublicKeyString (use fromString instead)
     */
@@ -86,8 +86,8 @@ class PublicKey {
     }
 
     /**
-        @arg {string} public_key - like TWEXyz...
-        @arg {string} address_prefix - like TWE
+        @arg {string} public_key - like TMEXyz...
+        @arg {string} address_prefix - like TME
         @throws {Error} if public key is invalid
         @return PublicKey
     */

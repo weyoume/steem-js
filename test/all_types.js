@@ -47,8 +47,8 @@ let allTypes = {
     protocol_id_type: "1.1.1", object_id_type: "1.1.1", //vote_id: "2:1",
 
     static_variant: [
-        ["transfer", {from:"alice", to:"bob", amount: "1.000 ECO", memo: ""}],
-        ["price", {base: "1.000 ECO", quote: "1.000 ECO"}],
+        ["transfer", {from:"alice", to:"bob", amount: "1.000 TME", memo: ""}],
+        ["price", {base: "1.000 TME", quote: "1.000 TME"}],
     ],
 
     map: [[4,3], [2,1]],

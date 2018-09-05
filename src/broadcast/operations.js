@@ -34,7 +34,7 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "transferECOtoESCORfund",
+    "operation": "transferTMEtoSCOREfund",
     "params": [
       "from",
       "to",
@@ -43,10 +43,10 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "withdrawESCOR",
+    "operation": "withdrawSCORE",
     "params": [
       "account",
-      "ESCOR"
+      "SCORE"
     ]
   },
   {
@@ -192,7 +192,7 @@ module.exports = [
       "author",
       "permlink",
       "max_accepted_payout",
-      "percent_EUSD",
+      "percent_TSD",
       "allow_votes",
       "allow_curationRewards",
       "extensions"
@@ -200,12 +200,12 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "setWithdrawESCORasECOroute",
+    "operation": "setWithdrawSCOREasTMEroute",
     "params": [
       "from_account",
       "to_account",
       "percent",
-      "autoESCOR"
+      "autoSCORE"
     ]
   },
   {
@@ -274,8 +274,8 @@ module.exports = [
       "to",
       "agent",
       "escrow_id",
-      "EUSDamount",
-      "ECOamount",
+      "TSDamount",
+      "TMEamount",
       "fee",
       "ratification_deadline",
       "escrow_expiration",
@@ -303,8 +303,8 @@ module.exports = [
       "who",
       "receiver",
       "escrow_id",
-      "EUSDamount",
-      "ECOamount"
+      "TSDamount",
+      "TMEamount"
     ]
   },
   {
@@ -395,18 +395,18 @@ module.exports = [
     "operation": "claimRewardBalance",
     "params": [
       "account",
-      "ECOreward",
-      "EUSDreward",
-      "ESCORreward"
+      "TMEreward",
+      "TSDreward",
+      "SCOREreward"
     ]
   },
   {
     "roles": ["active", "owner"],
-    "operation": "delegateESCOR",
+    "operation": "delegateSCORE",
     "params": [
       "delegator",
       "delegatee",
-      "ESCOR"
+      "SCORE"
     ]
   },
   {
@@ -462,7 +462,7 @@ module.exports = [
   },
   {
     "roles": ["active", "owner"],
-    "operation": "fillESCORWithdraw",
+    "operation": "fillSCOREWithdraw",
     "params": [
       "from_account",
       "to_account",

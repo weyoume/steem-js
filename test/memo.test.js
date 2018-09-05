@@ -25,7 +25,7 @@ describe('wehelpjs.auth: memo', ()=> {
         assert.equal(plaintext, '#memo2')
     })
     it('known encryption', () => {
-        const base58 = '#HU6pdQ4Hh8cFrDVooekRPVZu4BdrhAe9RxrWrei2CwfAApAPdM4PT5mSV9cV3tTuWKotYQF6suyM4JHFBZz4pcwyESCORzuZ2na7uwhRcLqFoqCam1VU3eCLjVNqcgUNbH3'
+        const base58 = '#HU6pdQ4Hh8cFrDVooekRPVZu4BdrhAe9RxrWrei2CwfAApAPdM4PT5mSV9cV3tTuWKotYQF6suyM4JHFBZz4pcwySCOREzuZ2na7uwhRcLqFoqCam1VU3eCLjVNqcgUNbH3'
         const nonce = '1462976530069648'
         const text = '#爱'
 
