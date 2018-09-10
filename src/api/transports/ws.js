@@ -67,12 +67,16 @@ export default class WsTransport extends Transport {
       const deferral = {};
       new Promise((resolve, reject) => {
         deferral.resolve = (val) => {
-          resolve(val);
-          callback(null, val);
+					resolve(val);
+					if(typeof callback == 'function'){
+						callback(null, val);
+					}
         };
         deferral.reject = (val) => {
-          reject(val);
-          callback(val);
+					reject(val);
+					if(typeof callback == 'function'){
+						callback(val);
+					}
         }
       });
 

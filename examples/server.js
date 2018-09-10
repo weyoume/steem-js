@@ -10,7 +10,7 @@ wehelpjs.api.getAccounts(['dan'], function(err, result) {
 	console.log(reputation);
 });
 
-wehelpjs.api.getState('trending/weyoume', function(err, result) {
+wehelpjs.api.getState('trending/WeYouMe', function(err, result) {
 	console.log(err, result);
 });
 

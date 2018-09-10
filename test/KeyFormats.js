@@ -98,7 +98,7 @@ test({
     Compressed_BTC:	"TWYMANNTSEaUviJgWLzJBersPmyFZBY4jJETY",
     Uncompressed_PTS:	"TWYMEgj7RM6FBwSoccGaESJLC3Mi18785bM3T",
     Compressed_PTS:	"TWYMD5rYtofD6D4UHJH6mo953P5wpBfMhdMEi",
-    // https://github.com/eziranetwork/wehelpjs/issues/267
+    // https://github.com/WeYouMe/wehelpjs/issues/267
     null_hex: "000000000000000000000000000000000000000000000000000000000000000000",
     null_address: "TWYM1111111111111111111111111111111114T1Anm"
 });

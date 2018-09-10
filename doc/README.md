@@ -48,7 +48,7 @@ wehelpjs.config.set('chain_id','782a3039b478c839e4cb0c941ff4eaeb7df40bdd68bd441a
 ```
 ### set
 ```
-wehelpjs.config.set('address_prefix','TME');
+wehelpjs.config.set('address_prefix','TWYM');
 ```
 ### get
 ```
@@ -58,7 +58,7 @@ wehelpjs.config.get('chain_id');
 ## JSON-RPC
 Here is how to activate JSON-RPC transport:
 ```js
-wehelpjs.api.setOptions({ url: 'https://api.weyoume.io' });
+wehelpjs.api.setOptions({ url: 'https://api.WeYouMe.io' });
 ```
 
 # API
