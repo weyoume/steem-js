@@ -94,8 +94,10 @@ function checkEncryption() {
     let plaintext;
     encodeTest = true // prevent infinate looping
     try {
-      const wif = '5JdeC9P7Pbd1uGdFVEsJ41EkEnADbbHGq6p1BwFxm6txNBsQnsw'
-      const pubkey = 'STM8m5UgaFAAYQRuaNejYdS8FVLVp9Ss3K1qAVk5de6F8s3HnVbvA'
+
+      const wif = '5JNHfZYKGaomSFvd4NUdQ9qMcEAC43kujbfjueTHpVapX1Kzq2n'
+      // const wif = '5JdeC9P7Pbd1uGdFVEsJ41EkEnADbbHGq6p1BwFxm6txNBsQnsw'
+      const pubkey = 'TWYM6LLegbAgLAy28EHrffBVuANFWcFgmqRMW13wBmTExqFE9SCkg4'
       const cyphertext = encode(wif, pubkey, '#memo爱')
       plaintext = decode(wif, cyphertext)
     } catch(e) {

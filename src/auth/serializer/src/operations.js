@@ -1,13 +1,13 @@
 
-// This file is merge updated from steemd's js_operation_serializer program.
+// This file is merge updated from node's js_operation_serializer program.
 /*
 
 ./js_operation_serializer |
 sed 's/void/future_extensions/g'|
-sed 's/steemit_protocol:://g'|
+sed 's/node_protocol:://g'|
 sed 's/14static_variantIJNS_12fixed_stringINSt3__14pairIyyEEEEEEE/string/g'|
-sed 's/steemit_future_extensions/future_extensions/g'|
-sed 's/steemit_protocol_//g' > tmp.coffee
+sed 's/node_future_extensions/future_extensions/g'|
+sed 's/node_protocol_//g' > tmp.coffee
 
 */
 // coffee tmp.coffee # fix errors until you see: `ChainTypes is not defined`
@@ -169,7 +169,7 @@ let comment = new Serializer(
     permlink: string,
     title: string,
     body: string,
-    json_metadata: string
+    json: string
 }
 );
 
@@ -182,18 +182,18 @@ let transfer = new Serializer(
 }
 );
 
-let transfer_to_vesting = new Serializer( 
-    "transfer_to_vesting", {
+let transferTMEtoSCOREfund = new Serializer( 
+    "transferTMEtoSCOREfund", {
     from: string,
     to: string,
     amount: asset
 }
 );
 
-let withdraw_vesting = new Serializer( 
-    "withdraw_vesting", {
+let withdrawSCORE = new Serializer( 
+    "withdrawSCORE", {
     account: string,
-    vesting_shares: asset
+    SCORE: asset
 }
 );
 
@@ -245,27 +245,27 @@ var authority = new Serializer(
 }
 );
 
-let account_create = new Serializer( 
-    "account_create", {
+let accountCreate = new Serializer( 
+    "accountCreate", {
     fee: asset,
     creator: string,
-    new_account_name: string,
+    newAccountName: string,
     owner: authority,
     active: authority,
     posting: authority,
-    memo_key: public_key,
-    json_metadata: string
+    memoKey: public_key,
+    json: string
 }
 );
 
-let account_update = new Serializer( 
-    "account_update", {
+let accountUpdate = new Serializer( 
+    "accountUpdate", {
     account: string,
     owner: optional(authority),
     active: optional(authority),
     posting: optional(authority),
-    memo_key: public_key,
-    json_metadata: string
+    memoKey: public_key,
+    json: string
 }
 );
 
@@ -273,7 +273,7 @@ let chain_properties = new Serializer(
     "chain_properties", {
     account_creation_fee: asset,
     maximum_block_size: uint32,
-    sbd_interest_rate: uint16
+    TSD_interest_rate: uint16
 }
 );
 
@@ -287,8 +287,8 @@ let witness_update = new Serializer(
 }
 );
 
-let account_witness_vote = new Serializer( 
-    "account_witness_vote", {
+let accountWitnessVote = new Serializer( 
+    "accountWitnessVote", {
     account: string,
     witness: string,
     approve: bool
@@ -327,15 +327,15 @@ let report_over_production = new Serializer(
 }
 );
 
-let delete_comment = new Serializer( 
-    "delete_comment", {
+let deleteComment = new Serializer( 
+    "deleteComment", {
     author: string,
     permlink: string
 }
 );
 
-let custom_json = new Serializer( 
-    "custom_json", {
+let customJson = new Serializer( 
+    "customJson", {
     required_auths: set(string),
     required_posting_auths: set(string),
     id: string,
@@ -348,21 +348,21 @@ let comment_options = new Serializer(
     author: string,
     permlink: string,
     max_accepted_payout: asset,
-    percent_steem_dollars: uint16,
+    percent_TSD: uint16,
     allow_votes: bool,
-    allow_curation_rewards: bool,
+    allow_curationRewards: bool,
     extensions: set(static_variant([
         comment_payout_beneficiaries
     ]))
 }
 );
 
-let set_withdraw_vesting_route = new Serializer( 
-    "set_withdraw_vesting_route", {
+let setWithdrawSCOREasTMEroute = new Serializer( 
+    "setWithdrawSCOREasTMEroute", {
     from_account: string,
     to_account: string,
     percent: uint16,
-    auto_vest: bool
+    autoSCORE: bool
 }
 );
 
@@ -394,8 +394,8 @@ let prove_authority = new Serializer(
 
 let request_account_recovery = new Serializer( 
     "request_account_recovery", {
-    recovery_account: string,
-    account_to_recover: string,
+    recoveryAccount: string,
+    accountToRecover: string,
     new_owner_authority: authority,
     extensions: set(future_extensions)
 }
@@ -403,17 +403,17 @@ let request_account_recovery = new Serializer(
 
 let recover_account = new Serializer(
     "recover_account", {
-    account_to_recover: string,
+    accountToRecover: string,
     new_owner_authority: authority,
     recent_owner_authority: authority,
     extensions: set(future_extensions)
 }
 );
 
-let change_recovery_account = new Serializer( 
-    "change_recovery_account", {
-    account_to_recover: string,
-    new_recovery_account: string,
+let change_recoveryAccount = new Serializer( 
+    "change_recoveryAccount", {
+    accountToRecover: string,
+    new_recoveryAccount: string,
     extensions: set(future_extensions)
 }
 );
@@ -422,12 +422,12 @@ let escrow_transfer = new Serializer(
     "escrow_transfer", {
     from: string,
     to: string,
-    sbd_amount: asset,
-    steem_amount: asset,
+    TSDamount: asset,
+    TMEamount: asset,
     escrow_id: uint32,
     agent: string,
     fee: asset,
-    json_meta: string,
+    json: string,
     ratification_deadline: time_point_sec,
     escrow_expiration: time_point_sec
 }
@@ -451,8 +451,8 @@ let escrow_release = new Serializer(
     who: string,
     receiver: string,
     escrow_id: uint32,
-    sbd_amount: asset,
-    steem_amount: asset
+    TSDamount: asset,
+    TMEamount: asset
 }
 );
 
@@ -500,8 +500,8 @@ let escrow_approve = new Serializer(
 }
 );
 
-let transfer_to_savings = new Serializer( 
-    "transfer_to_savings", {
+let transferToSavings = new Serializer( 
+    "transferToSavings", {
     from: string,
     to: string,
     amount: asset,
@@ -509,8 +509,8 @@ let transfer_to_savings = new Serializer(
 }
 );
 
-let transfer_from_savings = new Serializer( 
-    "transfer_from_savings", {
+let transferFromSavings = new Serializer( 
+    "transferFromSavings", {
     from: string,
     request_id: uint32,
     to: string,
@@ -519,8 +519,8 @@ let transfer_from_savings = new Serializer(
 }
 );
 
-let cancel_transfer_from_savings = new Serializer( 
-    "cancel_transfer_from_savings", {
+let cancelTransferFromSavings = new Serializer( 
+    "cancelTransferFromSavings", {
     from: string,
     request_id: uint32
 }
@@ -560,34 +560,34 @@ let set_reset_account = new Serializer(
 }
 );
 
-let claim_reward_balance = new Serializer( 
-    "claim_reward_balance", {
+let claimRewardBalance = new Serializer( 
+    "claimRewardBalance", {
     account: string,
-    reward_steem: asset,
-    reward_sbd: asset,
-    reward_vests: asset
+    TMEreward: asset,
+    TSDreward: asset,
+    SCOREreward: asset
 }
 );
 
-let delegate_vesting_shares = new Serializer( 
-    "delegate_vesting_shares", {
+let delegateSCORE = new Serializer( 
+    "delegateSCORE", {
     delegator: string,
     delegatee: string,
-    vesting_shares: asset
+    SCORE: asset
 }
 );
 
-let account_create_with_delegation = new Serializer( 
-    "account_create_with_delegation", {
+let accountCreateWithDelegation = new Serializer( 
+    "accountCreateWithDelegation", {
     fee: asset,
     delegation: asset,
     creator: string,
-    new_account_name: string,
+    newAccountName: string,
     owner: authority,
     active: authority,
     posting: authority,
-    memo_key: public_key,
-    json_metadata: string,
+    memoKey: public_key,
+    json: string,
     extensions: set(future_extensions)
 }
 );
@@ -601,18 +601,18 @@ let fill_convert_request = new Serializer(
 }
 );
 
-let author_reward = new Serializer( 
-    "author_reward", {
+let authorReward = new Serializer( 
+    "authorReward", {
     author: string,
     permlink: string,
-    sbd_payout: asset,
-    steem_payout: asset,
-    vesting_payout: asset
+    TSDpayout: asset,
+    TMEpayout: asset,
+    SCOREpayout: asset
 }
 );
 
-let curation_reward = new Serializer( 
-    "curation_reward", {
+let curationReward = new Serializer( 
+    "curationReward", {
     curator: string,
     reward: asset,
     comment_author: string,
@@ -642,8 +642,8 @@ let interest = new Serializer(
 }
 );
 
-let fill_vesting_withdraw = new Serializer( 
-    "fill_vesting_withdraw", {
+let fillSCOREWithdraw = new Serializer( 
+    "fillSCOREWithdraw", {
     from_account: string,
     to_account: string,
     withdrawn: asset,
@@ -667,8 +667,8 @@ let shutdown_witness = new Serializer(
     {owner: string}
 );
 
-let fill_transfer_from_savings = new Serializer( 
-    "fill_transfer_from_savings", {
+let fill_transferFromSavings = new Serializer( 
+    "fill_transferFromSavings", {
     from: string,
     to: string,
     amount: asset,
@@ -689,10 +689,10 @@ let comment_payout_update = new Serializer(
 }
 );
 
-let return_vesting_delegation = new Serializer( 
-    "return_vesting_delegation", {
+let return_SCORE_delegation = new Serializer( 
+    "return_SCORE_delegation", {
     account: string,
-    vesting_shares: asset
+    SCORE: asset
 }
 );
 
@@ -709,58 +709,58 @@ operation.st_operations = [
     vote,    
     comment,    
     transfer,    
-    transfer_to_vesting,    
-    withdraw_vesting,    
+    transferTMEtoSCOREfund,    
+    withdrawSCORE,    
     limit_order_create,    
     limit_order_cancel,    
     feed_publish,    
     convert,    
-    account_create,    
-    account_update,    
+    accountCreate,    
+    accountUpdate,    
     witness_update,    
-    account_witness_vote,    
+    accountWitnessVote,    
     account_witness_proxy,    
     pow,    
     custom,    
     report_over_production,    
-    delete_comment,    
-    custom_json,    
+    deleteComment,    
+    customJson,    
     comment_options,    
-    set_withdraw_vesting_route,    
+    setWithdrawSCOREasTMEroute,    
     limit_order_create2,    
     challenge_authority,    
     prove_authority,    
     request_account_recovery,    
     recover_account,    
-    change_recovery_account,    
+    change_recoveryAccount,    
     escrow_transfer,    
     escrow_dispute,    
     escrow_release,    
     pow2,    
     escrow_approve,    
-    transfer_to_savings,    
-    transfer_from_savings,    
-    cancel_transfer_from_savings,    
+    transferToSavings,    
+    transferFromSavings,    
+    cancelTransferFromSavings,    
     custom_binary,    
     decline_voting_rights,    
     reset_account,    
     set_reset_account,    
-    claim_reward_balance,    
-    delegate_vesting_shares,    
-    account_create_with_delegation,    
+    claimRewardBalance,    
+    delegateSCORE,    
+    accountCreateWithDelegation,    
     fill_convert_request,    
-    author_reward,    
-    curation_reward,    
+    authorReward,    
+    curationReward,    
     comment_reward,    
     liquidity_reward,    
     interest,    
-    fill_vesting_withdraw,    
+    fillSCOREWithdraw,    
     fill_order,    
     shutdown_witness,    
-    fill_transfer_from_savings,    
+    fill_transferFromSavings,    
     hardfork,    
     comment_payout_update,    
-    return_vesting_delegation,    
+    return_SCORE_delegation,    
     comment_benefactor_reward
 ];
 

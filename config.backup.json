@@ -1,8 +1,10 @@
 {
-  "transport": "http",
+  "transport": "https",
   "websocket": "wss://peer.WeYouMe.io:8090",
   "uri": "https://api.WeYouMe.io",
-  "url": "",
+  "url": "https://api.WeYouMe.io",
+  "dev_uri": "https://devapi.WeYouMe.io",
+  "stage_uri": "https://stageapi.WeYouMe.io",
   "address_prefix": "TWYM",
   "chain_id": "ed8b34c6c348987271fa7128c1f89072ab07b832aa0d7057b165d83d513b461a"
 }

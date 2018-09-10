@@ -1,15 +1,15 @@
 import Promise from 'bluebird';
 import should from 'should';
-import steem from '../src';
+import wehelpjs from '../src';
 import pkg from '../package.json';
 
-const username = process.env.STEEM_USERNAME || 'guest123';
-const password = process.env.STEEM_PASSWORD;
+const username = process.env.NODE_USERNAME || 'guest123';
+const password = process.env.NODE_PASSWORD;
 const postingWif = password
-  ? steem.auth.toWif(username, password, 'posting')
+  ? wehelpjs.auth.toWif(username, password, 'posting')
   : '5JRaypasxMx1L97ZUX7YuC5Psb5EAbF821kkAGtBj7xCJFQcbLg';
 
-describe('steem.broadcast:', () => {
+describe('wehelpjs.broadcast:', () => {
 
   describe('comment with options', () => {
     before(() => {
@@ -17,7 +17,7 @@ describe('steem.broadcast:', () => {
     });
 
     it('works', async () => {
-      const permlink = steem.formatter.commentPermlink('siol', 'test');
+      const permlink = wehelpjs.formatter.commentPermlink('siol', 'test');
       const operations = [
         ['comment',
           {
@@ -26,20 +26,20 @@ describe('steem.broadcast:', () => {
             author: username,
             permlink,
             title: 'Test',
-            body: `This is a test using Steem.js v${pkg.version}.`,
-            json_metadata : JSON.stringify({
+            body: `This is a test using wehelpjs v${pkg.version}.`,
+            json : JSON.stringify({
               tags: ['test'],
-              app: `steemjs/${pkg.version}`
+              app: `wehelpjs/${pkg.version}`
             })
           }
         ],
         ['comment_options', {
           author: username,
           permlink,
-          max_accepted_payout: '1000000.000 SBD',
-          percent_steem_dollars: 10000,
+          max_accepted_payout: '1000000.000 TSD',
+          percent_TSD: 10000,
           allow_votes: true,
-          allow_curation_rewards: true,
+          allow_curationRewards: true,
           extensions: [
             [0, {
               beneficiaries: [
@@ -51,7 +51,7 @@ describe('steem.broadcast:', () => {
         }]
       ];
 
-      const tx = await steem.broadcast.sendAsync(
+      const tx = await wehelpjs.broadcast.sendAsync(
         { operations, extensions: [] },
         { posting: postingWif }
       );

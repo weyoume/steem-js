@@ -1,7 +1,7 @@
 import api from '../api';
 
-exports = module.exports = steemBroadcast => {
-  steemBroadcast.addAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting', weight }, cb) => {
+exports = module.exports = wehelpjsBroadcast => {
+  wehelpjsBroadcast.addAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting', weight }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -23,20 +23,20 @@ exports = module.exports = steemBroadcast => {
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
       /** Add authority on user account */
-      steemBroadcast.accountUpdate(
+      wehelpjsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,
         active,
         posting,
-        userAccount.memo_key,
-        userAccount.json_metadata,
+        userAccount.memoKey,
+        userAccount.json,
         cb
       );
     });
   };
 
-  steemBroadcast.removeAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting' }, cb) => {
+  wehelpjsBroadcast.removeAccountAuth = ({ signingKey, username, authorizedUsername, role = 'posting' }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -60,20 +60,20 @@ exports = module.exports = steemBroadcast => {
       const active = role === 'active' ? updatedAuthority : undefined;
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
-      steemBroadcast.accountUpdate(
+      wehelpjsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,
         active,
         posting,
-        userAccount.memo_key,
-        userAccount.json_metadata,
+        userAccount.memoKey,
+        userAccount.json,
         cb
       );
     });
   };
 
-  steemBroadcast.addKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting', weight }, cb) => {
+  wehelpjsBroadcast.addKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting', weight }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -95,20 +95,20 @@ exports = module.exports = steemBroadcast => {
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
       /** Add authority on user account */
-      steemBroadcast.accountUpdate(
+      wehelpjsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,
         active,
         posting,
-        userAccount.memo_key,
-        userAccount.json_metadata,
+        userAccount.memoKey,
+        userAccount.json,
         cb
       );
     });
   };
 
-  steemBroadcast.removeKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting' }, cb) => {
+  wehelpjsBroadcast.removeKeyAuth = ({ signingKey, username, authorizedKey, role = 'posting' }, cb) => {
     api.getAccounts([username], (err, [userAccount]) => {
       if (err) { return cb(new Error(err), null); }
       if (!userAccount) { return cb(new Error('Invalid account name'), null); }
@@ -132,14 +132,14 @@ exports = module.exports = steemBroadcast => {
       const active = role === 'active' ? updatedAuthority : undefined;
       const posting = role === 'posting' ? updatedAuthority : undefined;
 
-      steemBroadcast.accountUpdate(
+      wehelpjsBroadcast.accountUpdate(
         signingKey,
         userAccount.name,
         owner,
         active,
         posting,
-        userAccount.memo_key,
-        userAccount.json_metadata,
+        userAccount.memoKey,
+        userAccount.json,
         cb
       );
     });

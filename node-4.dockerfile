@@ -1,6 +1,6 @@
 FROM node:4
-ADD ./package.json /steemjs/package.json
-WORKDIR /steemjs
+ADD ./package.json /wehelpjs/package.json
+WORKDIR /wehelpjs
 RUN npm install
-ADD . /steemjs
+ADD . /wehelpjs
 RUN npm test

@@ -13,7 +13,7 @@ if (isNode) {
   throw new Error("Couldn't decide on a `WebSocket` class");
 }
 
-const debug = newDebug('steem:ws');
+const debug = newDebug('wehelpjs:ws');
 
 export default class WsTransport extends Transport {
   constructor(options = {}) {
@@ -62,17 +62,21 @@ export default class WsTransport extends Transport {
   }
 
   send(api, data, callback) {
-    debug('Steem::send', api, data);
+    debug('wehelpjs::send', api, data);
     return this.start().then(() => {
       const deferral = {};
       new Promise((resolve, reject) => {
         deferral.resolve = (val) => {
-          resolve(val);
-          callback(null, val);
+					resolve(val);
+					if(typeof callback == 'function'){
+						callback(null, val);
+					}
         };
         deferral.reject = (val) => {
-          reject(val);
-          callback(val);
+					reject(val);
+					if(typeof callback == 'function'){
+						callback(val);
+					}
         }
       });
 
@@ -114,7 +118,7 @@ export default class WsTransport extends Transport {
 
   onMessage(websocketMessage) {
     const message = JSON.parse(websocketMessage.data);
-    debug('-- Steem.onMessage -->', message.id);
+    debug('-- wehelpjs.onMessage -->', message.id);
     if (!this._requests.has(message.id)) {
       throw new Error(`Panic: no request in queue for message id ${message.id}`);
     }

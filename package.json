@@ -1,15 +1,17 @@
 {
-  "name": "@steemit/steem-js",
-  "version": "0.7.1",
-  "description": "Steem.js the JavaScript API for Steem blockchain",
+  "name": "wehelpjs",
+  "version": "1.1.11111111",
+  "description": "wehelpjs is the JavaScript API Library for the WeYouMe blockchain",
   "main": "lib/index.js",
   "scripts": {
     "test": "eslint --quiet src test; mocha -t 40000 --require babel-polyfill --require babel-register",
-    "test-auth": "npm test -- --grep 'steem.auth'",
+    "test-auth": "npm test -- --grep 'webuilder1'",
     "build": "npm run build-browser && npm run build-node",
     "build-browser": "rm -rf dist && NODE_ENV=production node ./node_modules/webpack/bin/webpack.js && gzip -k -f ./dist/*.js && du -h ./dist/*",
     "build-node": "mkdir -p ./lib && cp -r ./src/* ./lib/ && babel ./src --out-dir ./lib",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "push": "./scripts/push.sh",
+    "pull": "./scripts/pull.sh"
   },
   "browser": {
     "ws": false,
@@ -17,22 +19,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/steemit/steem-js.git"
+    "url": "git+https://github.com/WeYouMe/wehelpjs.git"
   },
   "keywords": [
-    "steem",
-    "steemit",
+    "WeYouMenetwork",
+    "WeYouMe",
+    "WeYouMe",
     "blockchain",
-    "steemjs"
+    "wehelpjs"
   ],
   "author": "Fabien (https://github.com/bonustrack)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/steemit/steem-js/issues"
+    "url": "https://github.com/WeYouMe/wehelpjs/issues"
   },
-  "homepage": "https://github.com/steemit/steem-js#readme",
+  "homepage": "https://github.com/WeYouMe/wehelpjs#readme",
   "dependencies": {
-    "@steemit/rpc-auth": "^1.1.0",
     "bigi": "^1.4.2",
     "bluebird": "^3.4.6",
     "browserify-aes": "^1.0.6",
@@ -48,6 +50,7 @@
     "ecurve": "^1.0.5",
     "lodash": "^4.16.4",
     "secure-random": "^1.1.1",
+    "werpcjs": "latest",
     "ws": "^3.3.2"
   },
   "devDependencies": {
@@ -71,9 +74,6 @@
     "webpack-visualizer-plugin": "^0.1.5"
   },
   "contributors": [
-    "Fabien (https://github.com/bonustrack)",
-    "James Calfee (https://github.com/jcalfee)",
-    "Nilesh Suthar (https://github.com/nil1511)",
-    "Pedro Tacla Yamada (https://github.com/yamadapc)"
+    "Lopu (https://github.com/lopudesigns)"
   ]
 }

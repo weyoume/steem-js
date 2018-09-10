@@ -1,32 +1,32 @@
-var steem = require('../lib');
+var wehelpjs = require('../lib');
 
-steem.api.getAccountCount(function(err, result) {
+wehelpjs.api.getAccountCount(function(err, result) {
 	console.log(err, result);
 });
 
-steem.api.getAccounts(['dan'], function(err, result) {
+wehelpjs.api.getAccounts(['dan'], function(err, result) {
 	console.log(err, result);
-	var reputation = steem.formatter.reputation(result[0].reputation);
+	var reputation = wehelpjs.formatter.reputation(result[0].reputation);
 	console.log(reputation);
 });
 
-steem.api.getState('trending/steemit', function(err, result) {
+wehelpjs.api.getState('trending/WeYouMe', function(err, result) {
 	console.log(err, result);
 });
 
-steem.api.getFollowing('ned', 0, 'blog', 10, function(err, result) {
+wehelpjs.api.getFollowing('ned', 0, 'blog', 10, function(err, result) {
 	console.log(err, result);
 });
 
-steem.api.getFollowers('dan', 0, 'blog', 10, function(err, result) {
+wehelpjs.api.getFollowers('dan', 0, 'blog', 10, function(err, result) {
 	console.log(err, result);
 });
 
-steem.api.streamOperations(function(err, result) {
+wehelpjs.api.streamOperations(function(err, result) {
 	console.log(err, result);
 });
 
-steem.api.getDiscussionsByActive({
+wehelpjs.api.getDiscussionsByActive({
   limit: 10,
   start_author: 'thecastle',
   start_permlink: 'this-week-in-level-design-1-22-2017'

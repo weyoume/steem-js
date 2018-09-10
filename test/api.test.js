@@ -2,36 +2,36 @@ require('babel-polyfill');
 import assert from 'assert';
 import should from 'should';
 import testPost from './test-post.json';
-import steem from '../src';
+import wehelpjs from '../src';
 
-describe('steem.api:', function () {
+describe('wehelpjs.api:', function () {
   this.timeout(30 * 1000);
 
   describe('setOptions', () => {
     it('works', () => {
-      steem.api.setOptions({ url: steem.config.get('websocket') });
+      wehelpjs.api.setOptions({ url: wehelpjs.config.get('websocket') });
     });
   });
 
   describe('getFollowers', () => {
     describe('getting ned\'s followers', () => {
       it('works', async () => {
-        const result = await steem.api.getFollowersAsync('ned', 0, 'blog', 5);
+        const result = await wehelpjs.api.getFollowersAsync('ned', 0, 'blog', 5);
         assert(result, 'getFollowersAsync resoved to null?');
         result.should.have.lengthOf(5);
       });
 
       it('the startFollower parameter has an impact on the result', async () => {
         // Get the first 5
-        const result1 = await steem.api.getFollowersAsync('ned', 0, 'blog', 5)
+        const result1 = await wehelpjs.api.getFollowersAsync('ned', 0, 'blog', 5)
           result1.should.have.lengthOf(5);
-        const result2 = await steem.api.getFollowersAsync('ned', result1[result1.length - 1].follower, 'blog', 5)
+        const result2 = await wehelpjs.api.getFollowersAsync('ned', result1[result1.length - 1].follower, 'blog', 5)
           result2.should.have.lengthOf(5);
         result1.should.not.be.eql(result2);
       });
 
       it('clears listeners', async () => {
-        steem.api.listeners('message').should.have.lengthOf(0);
+        wehelpjs.api.listeners('message').should.have.lengthOf(0);
       });
     });
   });
@@ -39,20 +39,20 @@ describe('steem.api:', function () {
   describe('getContent', () => {
     describe('getting a random post', () => {
       it('works', async () => {
-        const result = await steem.api.getContentAsync('yamadapc', 'test-1-2-3-4-5-6-7-9');
+        const result = await wehelpjs.api.getContentAsync('yamadapc', 'test-1-2-3-4-5-6-7-9');
         result.should.have.properties(testPost);
       });
 
       it('clears listeners', async () => {
-        steem.api.listeners('message').should.have.lengthOf(0);
+        wehelpjs.api.listeners('message').should.have.lengthOf(0);
       });
     });
   });
 
   describe('streamBlockNumber', () => {
-    it('streams steem transactions', (done) => {
+    it('streams transactions', (done) => {
       let i = 0;
-      const release = steem.api.streamBlockNumber((err, block) => {
+      const release = wehelpjs.api.streamBlockNumber((err, block) => {
         should.exist(block);
         block.should.be.instanceOf(Number);
         i++;
@@ -65,9 +65,9 @@ describe('steem.api:', function () {
   });
 
   describe('streamBlock', () => {
-    it('streams steem blocks', (done) => {
+    it('streams blocks', (done) => {
       let i = 0;
-      const release = steem.api.streamBlock((err, block) => {
+      const release = wehelpjs.api.streamBlock((err, block) => {
         try {
           should.exist(block);
           block.should.have.properties([
@@ -91,9 +91,9 @@ describe('steem.api:', function () {
   });
 
   describe('streamTransactions', () => {
-    it('streams steem transactions', (done) => {
+    it('streams transactions', (done) => {
       let i = 0;
-      const release = steem.api.streamTransactions((err, transaction) => {
+      const release = wehelpjs.api.streamTransactions((err, transaction) => {
         try {
           should.exist(transaction);
           transaction.should.have.properties([
@@ -117,9 +117,9 @@ describe('steem.api:', function () {
   });
 
   describe('streamOperations', () => {
-    it('streams steem operations', (done) => {
+    it('streams operations', (done) => {
       let i = 0;
-      const release = steem.api.streamOperations((err, operation) => {
+      const release = wehelpjs.api.streamOperations((err, operation) => {
         try {
           should.exist(operation);
         } catch (err2) {
@@ -139,10 +139,10 @@ describe('steem.api:', function () {
 
   describe('useApiOptions', () => {
     it('works ok with the prod instances', async() => {
-      steem.api.setOptions({ useAppbaseApi: true, url: steem.config.get('uri') });
+      wehelpjs.api.setOptions({ useAppbaseApi: true, url: wehelpjs.config.get('uri') });
 
-      const result = await steem.api.getContentAsync('yamadapc', 'test-1-2-3-4-5-6-7-9');
-      steem.api.setOptions({ useAppbaseApi: false, url: steem.config.get('uri') });
+      const result = await wehelpjs.api.getContentAsync('yamadapc', 'test-1-2-3-4-5-6-7-9');
+      wehelpjs.api.setOptions({ useAppbaseApi: false, url: wehelpjs.config.get('uri') });
 
       result.should.have.properties(testPost);
     });
